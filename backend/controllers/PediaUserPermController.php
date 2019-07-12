@@ -8,6 +8,8 @@ use backend\models\PediaUserPermSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\PediaUserMember;
+use common\models\PediaUserGroup;
 
 /**
  * PediaUserPermController implements the CRUD actions for PediaUserPerm model.
@@ -35,6 +37,10 @@ class PediaUserPermController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $this->layout='backcon';
         $searchModel = new PediaUserPermSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -64,12 +70,19 @@ class PediaUserPermController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
+        if ($edit != 1) {
+            return $this->goHome();
+        }
+
         $model = new PediaUserPerm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->pid]);
         }
-
+        $this->layout='backcon';
         return $this->render('create', [
             'model' => $model,
         ]);
