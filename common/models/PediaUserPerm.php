@@ -16,6 +16,10 @@ use Yii;
  *
  * @property PediaUserGroup[] $pediaUserGroups
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 class PediaUserPerm extends \yii\db\ActiveRecord
 {
     /**

@@ -4,6 +4,10 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserPerm */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 
 $this->title = 'Update Pedia User Perm: ' . $model->pid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Perms', 'url' => ['index']];
