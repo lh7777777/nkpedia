@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:
+ * Coding by yangyuzhe 1711396,20190712
+ * This is the main backond layout
+ */
 /**
  * @var string $content
  * @var \yii\web\View $this
