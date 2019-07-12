@@ -90,27 +90,27 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                         "items" => [
                                             [
                                                 "label" => "BasicInformation",
-                                                "url" => "/pedia-entry-basicinfo/index",
+                                                "url" => ["/pedia-entry-basicinfo/index"],
                                                 "icon" => "info",
                                                 /**"badge" => "123",*/
                                             ],
                                             [
                                                 "label" => "HistoryVersion",
-                                                "url" => "/pedia-entry-historyversion/index",
+                                                "url" => ["/pedia-entry-historyversion/index"],
                                                 "icon" => "history",
                                                 /**"badge" => "new",
                                                 "badgeOptions" => ["class" => "label-success"],*/
                                             ],
                                             [
                                                 "label" => "Report",
-                                                "url" => "/pedia-entry-report/index",
+                                                "url" => ["/pedia-entry-report/index"],
                                                 "icon" => "bell",
                                                 /**"badge" => "!",
                                                 "badgeOptions" => ["class" => "label-danger"],*/
                                             ],
                                             [
                                                 "label" => "RelatedLinks",
-                                                "url" => "/pedia-entry-relatedlinks/index",
+                                                "url" => ["/pedia-entry-relatedlinks/index"],
                                                 "icon" => "clone",
                                                 /**"badge" => "!",
                                                 "badgeOptions" => ["class" => "label-danger"],*/
