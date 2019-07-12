@@ -65,67 +65,65 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                             [
                                 "items" => [
                                     ["label" => "Home", "url" => ['/site/index'], "icon" => "home"],
-                                    ["label" => "permind", "url" => ['/pedia-user-perm/index'], "icon" => "plus"],
-                                    ["label" => "usermember", "url" => ['/pedia-user-member/index'], "icon" => "user-circle"],
-                                    ["label" => "usergroup", "url" => ['/pedia-user-group/index'], "icon" => "address-book"],
-                                    ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
-                                    ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
-                                    [
-                                        "label" => "Widgets",
-                                        "icon" => "th",
+                                    ["label" => "UserMember",
+                                        "icon" => "user-circle",
                                         "url" => "#",
                                         "items" => [
-                                            ["label" => "Menu", "url" => ["site/menu"]],
-                                            ["label" => "Panel", "url" => ["site/panel"]],
+                                            ["label" => "user-member", "url" => ["/pedia-user-member/index"],"icon" => "user-circle-o"],
+                                            ["label" => "user-medal", "url" => ["/pedia-user-medal/index"],"icon" => "grav"],
+                                            ["label" => "user-adorn", "url" => ["/pedia-user-adorn/index"],"icon" => "lock"],
                                         ],
                                     ],
                                     [
-                                        "label" => "Badges",
+                                        "label" => "UserGroup",
+                                        "icon" => "address-book",
                                         "url" => "#",
-                                        "icon" => "table",
+                                        "items" => [
+                                            ["label" => "user-group", "url" => ["/pedia-user-group/index"],"icon" => "users"],
+                                            ["label" => "user-perm", "url" => ["/pedia-user-perm/index"],"icon" => "key"],
+                                        ],
+                                    ],
+                                    [
+                                        "label" => "Entry",
+                                        "url" => "#",
+                                        "icon" => "book",
                                         "items" => [
                                             [
-                                                "label" => "Default",
-                                                "url" => "#",
-                                                "badge" => "123",
+                                                "label" => "BasicInformation",
+                                                "url" => "/pedia-entry-basicinfo/index",
+                                                "icon" => "info",
+                                                /**"badge" => "123",*/
                                             ],
                                             [
-                                                "label" => "Success",
-                                                "url" => "#",
-                                                "badge" => "new",
-                                                "badgeOptions" => ["class" => "label-success"],
+                                                "label" => "HistoryVersion",
+                                                "url" => "/pedia-entry-historyversion/index",
+                                                "icon" => "history",
+                                                /**"badge" => "new",
+                                                "badgeOptions" => ["class" => "label-success"],*/
                                             ],
                                             [
-                                                "label" => "Danger",
-                                                "url" => "#",
-                                                "badge" => "!",
-                                                "badgeOptions" => ["class" => "label-danger"],
+                                                "label" => "Report",
+                                                "url" => "/pedia-entry-report/index",
+                                                "icon" => "bell",
+                                                /**"badge" => "!",
+                                                "badgeOptions" => ["class" => "label-danger"],*/
+                                            ],
+                                            [
+                                                "label" => "RelatedLinks",
+                                                "url" => "/pedia-entry-relatedlinks/index",
+                                                "icon" => "clone",
+                                                /**"badge" => "!",
+                                                "badgeOptions" => ["class" => "label-danger"],*/
                                             ],
                                         ],
                                     ],
                                     [
-                                        "label" => "Multilevel",
+                                        "label" => "Category",
+                                        "icon" => "navicon",
                                         "url" => "#",
-                                        "icon" => "table",
                                         "items" => [
-                                            [
-                                                "label" => "Second level 1",
-                                                "url" => "#",
-                                            ],
-                                            [
-                                                "label" => "Second level 2",
-                                                "url" => "#",
-                                                "items" => [
-                                                    [
-                                                        "label" => "Third level 1",
-                                                        "url" => "#",
-                                                    ],
-                                                    [
-                                                        "label" => "Third level 2",
-                                                        "url" => "#",
-                                                    ],
-                                                ],
-                                            ],
+                                            ["label" => "category", "url" => ["/pedia-entry-category/index"],"icon" => "folder-o"],
+                                            ["label" => "classification", "url" => ["/pedia-entry-classification/index"],"icon" => "search"],
                                         ],
                                     ],
                                 ],
