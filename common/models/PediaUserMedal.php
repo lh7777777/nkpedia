@@ -5,6 +5,12 @@ namespace common\models;
 use Yii;
 
 /**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190712
+ * This is the model class for table "pedia_user_medal".
+ */
+
+/**
  * This is the model class for table "pedia_user_medal".
  *
  * @property int $mid 勋章id
