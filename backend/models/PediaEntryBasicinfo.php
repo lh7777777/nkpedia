@@ -5,6 +5,10 @@ namespace app\models;
 use Yii;
 
 /**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
+/**
  * This is the model class for table "pedia_entry_basicinfo".
  *
  * @property int $eid 词条id

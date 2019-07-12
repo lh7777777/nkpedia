@@ -5,6 +5,10 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserMember */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 
 $this->title = $model->uid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Members', 'url' => ['index']];

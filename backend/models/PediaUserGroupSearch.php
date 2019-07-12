@@ -7,6 +7,10 @@ use yii\data\ActiveDataProvider;
 use common\models\PediaUserGroup;
 
 /**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
+/**
  * PediaUserGroupSearch represents the model behind the search form of `common\models\PediaUserGroup`.
  */
 class PediaUserGroupSearch extends PediaUserGroup

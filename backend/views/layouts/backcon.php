@@ -66,6 +66,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 "items" => [
                                     ["label" => "Home", "url" => ['/site/index'], "icon" => "home"],
                                     ["label" => "permind", "url" => ['/pedia-user-perm/index'], "icon" => "plus"],
+                                    ["label" => "usermember", "url" => ['/pedia-user-member/index'], "icon" => "user-circle"],
+                                    ["label" => "usergroup", "url" => ['/pedia-user-group/index'], "icon" => "address-book"],
                                     ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
                                     ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
                                     [
