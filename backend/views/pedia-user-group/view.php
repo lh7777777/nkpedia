@@ -5,6 +5,10 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserGroup */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 
 $this->title = $model->gid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Groups', 'url' => ['index']];

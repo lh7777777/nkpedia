@@ -18,6 +18,10 @@ use Yii;
  * @property PediaUserMedal[] $ms
  * @property PediaUserGroup $g
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 class PediaUserMember extends \yii\db\ActiveRecord
 {
     /**

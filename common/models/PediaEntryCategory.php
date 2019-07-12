@@ -1,5 +1,11 @@
 <?php
 
+
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨越 1711300,20190712
+ * This is the model class for table "pedia_entry_category".
+ */
 namespace common\models;
 
 use Yii;

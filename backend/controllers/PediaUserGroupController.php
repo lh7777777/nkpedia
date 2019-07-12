@@ -12,6 +12,11 @@ use yii\filters\VerbFilter;
 /**
  * PediaUserGroupController implements the CRUD actions for PediaUserGroup model.
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ * This is the controller of pedia-user-group
+ */
 class PediaUserGroupController extends Controller
 {
     /**
@@ -35,6 +40,7 @@ class PediaUserGroupController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout='backcon';
         $searchModel = new PediaUserGroupSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

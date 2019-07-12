@@ -7,6 +7,10 @@ namespace common\models;
  *
  * @see PediaUserMember
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 class PediaUserMemberQuery extends \yii\db\ActiveQuery
 {
     /*public function active()

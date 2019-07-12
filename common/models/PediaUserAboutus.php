@@ -5,6 +5,12 @@ namespace common\models;
 use Yii;
 
 /**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190712
+ * This is the model class for table "pedia_user_aboutus".
+ */
+
+/**
  * This is the model class for table "pedia_user_aboutus".
  *
  * @property int $uid 关联用户id
