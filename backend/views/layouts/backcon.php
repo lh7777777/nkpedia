@@ -126,6 +126,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ["label" => "classification", "url" => ["/pedia-entry-classification/index"],"icon" => "search"],
                                         ],
                                     ],
+                                    ["label" => "AboutUs", "url" => ['/pedia-user-aboutus'], "icon" => "phone-square"],
                                 ],
                             ]
                         )
