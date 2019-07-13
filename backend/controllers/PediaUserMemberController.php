@@ -73,7 +73,6 @@ class PediaUserMemberController extends Controller
      */
     public function actionCreate()
     {
-
         $this->layout='backcon';
         $model = new PediaUserMember();
 

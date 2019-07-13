@@ -2,14 +2,14 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
 use Yii;
 use common\models\PediaUserPerm;
 use backend\models\PediaUserPermSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\PediaUserMember;
-use common\models\PediaUserGroup;
 
 /**
  * PediaUserPermController implements the CRUD actions for PediaUserPerm model.
@@ -37,9 +37,6 @@ class PediaUserPermController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
         $this->layout='backcon';
         $searchModel = new PediaUserPermSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -75,17 +72,16 @@ class PediaUserPermController extends Controller
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
-            echo "<script>alert('新人不允许新增词条')</script>";
-
+            echo "<script>alert('不允许新增权限')</script>";
             return $this->goHome();
         }
-
+        $this->layout='backcon';
         $model = new PediaUserPerm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->pid]);
         }
-        $this->layout='backcon';
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -100,6 +96,13 @@ class PediaUserPermController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
+        if ($edit != 1) {
+            echo "<script>alert('不允许更改他人权限')</script>";
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $model = $this->findModel($id);
 

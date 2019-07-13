@@ -78,7 +78,6 @@ class PediaUserGroupController extends Controller
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
             echo "<script>alert('新人不允许新增词条')</script>";
-
             return $this->goHome();
         }
         $this->layout='backcon';
