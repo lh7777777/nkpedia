@@ -60,6 +60,7 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionView($eid, $cid)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($eid, $cid),
         ]);
@@ -72,6 +73,7 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout='backcon';
         $model = new PediaEntryClassification();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -93,6 +95,7 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionUpdate($eid, $cid)
     {
+        $this->layout='backcon';
         $model = $this->findModel($eid, $cid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -114,6 +117,7 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionDelete($eid, $cid)
     {
+        $this->layout='backcon';
         $this->findModel($eid, $cid)->delete();
 
         return $this->redirect(['index']);

@@ -60,6 +60,7 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionView($eid, $lid)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($eid, $lid),
         ]);
@@ -72,6 +73,7 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout='backcon';
         $model = new PediaEntryRelatedlinks();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -93,6 +95,7 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionUpdate($eid, $lid)
     {
+        $this->layout='backcon';
         $model = $this->findModel($eid, $lid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -114,6 +117,7 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionDelete($eid, $lid)
     {
+        $this->layout='backcon';
         $this->findModel($eid, $lid)->delete();
 
         return $this->redirect(['index']);
