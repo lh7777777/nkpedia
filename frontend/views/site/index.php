@@ -7,6 +7,13 @@ use yii\helpers\Html;
 $this->title = 'My Yii Application';
 ?>
 <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-md6 layui-col-md-offset3">
+            <img src="<?php echo Url::to('@web/resources/title/1.png'); ?>" alt=""/>
+        </div>
+    </div>
+</div>
 <div class="layui-container layui-anim layui-anim-upbit" id="divcon">
     <div class="layui-row"></div>
         <div class="layui-row">
