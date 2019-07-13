@@ -3,6 +3,10 @@
 namespace app\models;
 
 /**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
+/**
  * This is the ActiveQuery class for [[PediaEntryBasicinfo]].
  *
  * @see PediaEntryBasicinfo

@@ -3,6 +3,12 @@
 namespace common\models;
 
 /**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190712
+ * This is the ActiveQuery class for [[PediaUserAboutus]].
+ */
+
+/**
  * This is the ActiveQuery class for [[PediaUserAboutus]].
  *
  * @see PediaUserAboutus

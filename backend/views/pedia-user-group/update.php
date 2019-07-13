@@ -4,6 +4,10 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserGroup */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190712
+ */
 
 $this->title = 'Update Pedia User Group: ' . $model->gid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Groups', 'url' => ['index']];
