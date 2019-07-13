@@ -16,6 +16,7 @@ use yii\filters\VerbFilter;
  * Team:没有蛀牙,NKU
  * Coding by 王心荻 1711298,20190712
  * Coding by 孙一冉 1711297,20190713
+ * Coding by:解亚兰 1711431，20190713
  */
 
 /**
@@ -83,9 +84,10 @@ class PediaUserMedalController extends Controller
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweddistri'];
         if ($edit != 1) {
-            echo "<script>alert('不允许新增勋章')</script>";
-            return $this->goHome();
+            ?><script>alert("您没有增加勋章权限");history.back();</script><?php
+            exit("0");
         }
+
         $this->layout='backcon';
         $model = new PediaUserMedal();
 
@@ -107,6 +109,14 @@ class PediaUserMedalController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("只有管理员可以更改勋章");history.back();</script><?php
+            exit("0");
+        }
+
         $this->layout='backcon';
         $model = $this->findModel($id);
 
@@ -128,6 +138,13 @@ class PediaUserMedalController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("只有管理员可以删除勋章");history.back();</script><?php
+            exit("0");
+        }
         $this->layout='backcon';
         $this->findModel($id)->delete();
 

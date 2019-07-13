@@ -17,6 +17,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
+
+<!--
+/**
+* Team:没有蛀牙,NKU
+* Coding by 解亚兰 1711431,20190713
+*/>    -->
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="<?= Yii::$app->charset ?>" />
@@ -59,7 +66,7 @@ echo implode($menuItems);
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="http://placehold.it/128x128" alt="..." class="img-circle profile_img">
+                        <img src="/nkpediaof/backend/web/static/image/xiaohui.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -178,7 +185,7 @@ echo implode($menuItems);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt="">
+                                <img src="/nkpediaof/backend/web/static/image/xiaohui.jpg" alt="">
                                 <?php
                                 if (!Yii::$app->user->isGuest)
                                 {
@@ -194,12 +201,7 @@ echo implode($menuItems);
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
 <!--                                <li><a href="javascript:;">  Profile</a>-->
 <!--                                </li>-->
-                                <li>
-                                    <a href="javascript:;">
-<!--                                        <span class="badge bg-red pull-right">50%</span>-->
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
+<!--
 <!--                                <li>-->
 <!--                                    <a href="javascript:;">Help</a>-->
 <!--                                </li>-->

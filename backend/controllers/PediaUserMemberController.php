@@ -17,6 +17,7 @@ use yii\filters\VerbFilter;
 /**
  * Team:没有蛀牙
  * Coding by:孙一冉 1711297，20190712
+ * Coding by:解亚兰 1711431，20190713
  * This is the controller of pedia-user-member
 */
 class PediaUserMemberController extends Controller
@@ -77,6 +78,13 @@ class PediaUserMemberController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("只有管理员可以增加用户;history.back();</script><?php
+            exit("0");
+        }
         $this->layout='backcon';
         $model = new PediaUserMember();
 
@@ -98,6 +106,13 @@ class PediaUserMemberController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            echo "<script>alert('只有管理员可以更改用户')</script>";
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $model = $this->findModel($id);
 

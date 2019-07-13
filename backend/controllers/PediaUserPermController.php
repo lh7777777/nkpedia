@@ -14,6 +14,13 @@ use yii\filters\VerbFilter;
 /**
  * PediaUserPermController implements the CRUD actions for PediaUserPerm model.
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190713
+ * Coding by:解亚兰 1711431，20190713
+ * This is the controller of pedia-user-perm
+ */
+
 class PediaUserPermController extends Controller
 {
     /**
@@ -76,9 +83,10 @@ class PediaUserPermController extends Controller
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
-            echo "<script>alert('不允许新增权限')</script>";
-            return $this->goHome();
+            ?><script>alert("只有管理员可以新建权限");history.back();</script><?php
+            exit("0");
         }
+
         $this->layout='backcon';
         $model = new PediaUserPerm();
 
@@ -103,9 +111,10 @@ class PediaUserPermController extends Controller
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
         if ($edit != 1) {
-            echo "<script>alert('不允许更改他人权限')</script>";
-            return $this->goHome();
+            ?><script>alert("您不能修改权限");history.back();</script><?php
+            exit("0");
         }
+
         $this->layout='backcon';
         $model = $this->findModel($id);
 
@@ -127,6 +136,13 @@ class PediaUserPermController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("只有管理员可以删除权限");history.back();</script><?php
+            exit("0");
+        }
         $this->layout='backcon';
         $this->findModel($id)->delete();
 

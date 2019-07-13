@@ -80,12 +80,12 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionCreate()
     {
+
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
-            echo "<script>alert('新人不允许新增词条')</script>";
-            return $this->goHome();
+            ?><script>alert("gohome!");history.back();</script><?php
         }
         $this->layout='backcon';
         $model = new PediaEntryBasicinfo();

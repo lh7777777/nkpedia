@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
  */
 /**
  * Team:没有蛀牙,NKU
- * Coding by 解压了 1711431,20190712
+ * Coding by 解亚兰1711431,20190712
  * This is the controller of pedia-entry-report table
  */
 class PediaEntryReportController extends Controller
