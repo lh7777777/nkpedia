@@ -86,7 +86,6 @@ class PediaUserPermController extends Controller
             ?><script>alert("只有管理员可以新建权限");history.back();</script><?php
             exit("0");
         }
-
         $this->layout='backcon';
         $model = new PediaUserPerm();
 
@@ -114,7 +113,6 @@ class PediaUserPermController extends Controller
             ?><script>alert("您不能修改权限");history.back();</script><?php
             exit("0");
         }
-
         $this->layout='backcon';
         $model = $this->findModel($id);
 
