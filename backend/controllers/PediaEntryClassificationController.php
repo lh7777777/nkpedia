@@ -4,10 +4,14 @@
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨越 1711300,20190712
+ * Coding by 孙一冉 1711297，20190713
  * This is the controller of bankend web.
  */
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaEntryClassification;
 use backend\models\PediaEntryClassificationSearch;
@@ -77,6 +81,17 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?>
+            <script>alert("不允许新增分类！");
+                history.back();
+            </script>
+            <?php
+            exit("0");
+        }
         $this->layout='backcon';
         $model = new PediaEntryClassification();
 
@@ -99,6 +114,17 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionUpdate($eid, $cid)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
+        if ($edit != 1) {
+            ?>
+            <script>alert("不允许修改分类！");
+                    history.back();
+            </script>
+            <?php
+            exit("0");
+        }
         $this->layout='backcon';
         $model = $this->findModel($eid, $cid);
 
@@ -121,6 +147,17 @@ class PediaEntryClassificationController extends Controller
      */
     public function actionDelete($eid, $cid)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?>
+            <script>alert("不允许删除分类！");
+                history.back();
+            </script>
+            <?php
+            exit("0");
+        }
         $this->layout='backcon';
         $this->findModel($eid, $cid)->delete();
 

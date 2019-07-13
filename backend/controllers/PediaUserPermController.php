@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * PediaUserPermController implements the CRUD actions for PediaUserPerm model.
  */
-class PediaUserPermController extends Controller
+class  PediaUserPermController extends Controller
 {
     /**
      * {@inheritdoc}
