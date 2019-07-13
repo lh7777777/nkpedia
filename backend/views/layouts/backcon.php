@@ -59,14 +59,14 @@ echo implode($menuItems);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                    <a href="http://www.nankai.edu.cn/" class="site_title"><i class="fa fa-paw"></i> <span>NKU</span></a>
                 </div>
                 <div class="clearfix"></div>
 
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="/nkpediaof/backend/web/static/image/xiaohui.jpg" alt="..." class="img-circle profile_img">
+                        <img src="/nkpedia/backend/web/static/image/xiaohui.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -185,7 +185,7 @@ echo implode($menuItems);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="/nkpediaof/backend/web/static/image/xiaohui.jpg" alt="">
+                                <img src="/nkpedia/backend/web/static/image/xiaohui.jpg" alt="">
                                 <?php
                                 if (!Yii::$app->user->isGuest)
                                 {
@@ -327,6 +327,9 @@ echo implode($menuItems);
     <div id="notif-group" class="tabbed_notifications"></div>
 </div>
 <!-- /footer content -->
+<div class="profile_pic">
+    <img src="/nkpedia/backend/web/static/image/1.png" alt="..." >
+</div>
 <?php $this->endBody(); ?>
 </body>
 </html>

@@ -12,7 +12,6 @@ $this->title = 'CenturyOld NankaiPedia';
 
     <div class="jumbotron">
         <h1>Welcome!</h1>
-
         <p class="lead">You have successfully entered our CenturyOld NankaiPedia.</p>
 
         <p><a class="btn btn-lg btn-success" href="http://localhost:8000/nkpedia/frontend/web/index.php">Click here to visit frontend!</a></p>
@@ -36,7 +35,8 @@ $this->title = 'CenturyOld NankaiPedia';
             <div class="col-lg-4">
                 <h2 style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">Your Perm</h2>
 
-                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;"><?php
+                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+                    <?php
                     $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                     $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                     $edit1 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
@@ -49,7 +49,8 @@ $this->title = 'CenturyOld NankaiPedia';
                         echo "Allow edit word:No";
                     }?>
                 </p>
-                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;"><?php
+                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+                    <?php
                     $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                     $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                     $edit2 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowbanuser'];
@@ -62,7 +63,8 @@ $this->title = 'CenturyOld NankaiPedia';
                         echo "Allow ban users:No";
                     }?>
                 </p>
-                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;"><?php
+                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+                    <?php
                     $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                     $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                     $edit3 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
@@ -75,7 +77,8 @@ $this->title = 'CenturyOld NankaiPedia';
                         echo "Allow create entry:No";
                     }?>
                 </p>
-                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;"><?php
+                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+                    <?php
                     $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                     $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                     $edit4 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweddistri'];
@@ -88,7 +91,8 @@ $this->title = 'CenturyOld NankaiPedia';
                         echo "Allow add medals:No";
                     }?>
                 </p>
-                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;"><?php
+                <p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+                    <?php
                     $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                     $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                     $edit5 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
