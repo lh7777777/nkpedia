@@ -41,6 +41,10 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaEntryRelatedlinksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

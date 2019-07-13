@@ -44,6 +44,10 @@ class PediaUserMedalController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserMedalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

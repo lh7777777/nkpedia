@@ -40,6 +40,10 @@ class PediaUserAboutusController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserAboutusSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

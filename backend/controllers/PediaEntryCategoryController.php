@@ -41,6 +41,10 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaEntryCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
