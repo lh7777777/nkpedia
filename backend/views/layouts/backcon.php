@@ -8,8 +8,8 @@
  * @var string $content
  * @var \yii\web\View $this
  */
-
-use yii\helpers\Html;
+use backend\assets\AppAsset;
+use yii\helpers\Html;use yiister\gentelella\assets\Asset;
 
 $bundle = yiister\gentelella\assets\Asset::register($this);
 
@@ -33,6 +33,17 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 </head>
 <body class="nav-<?= !empty($_COOKIE['menuIsCollapsed']) && $_COOKIE['menuIsCollapsed'] == 'true' ? 'sm' : 'md' ?>" >
 <?php $this->beginBody(); ?>
+<div class="hidden">
+<?php $menuItems[] =
+    Html::beginForm(['/site/logout'], 'post',['id'=>'login-form'])
+    . Html::submitButton(
+        'Logout ',
+        ['class' => 'btn btn-link logout','id'=>'logoutbutton']
+    )
+    . Html::endForm();
+echo implode($menuItems);
+?>
+</div>
 <div class="container body">
 
     <div class="main_container">
@@ -186,8 +197,10 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 <li>
                                     <a href="javascript:;">Help</a>
                                 </li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li>
+                                    <a href="javascript:void(0);" id="logouthref"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
                                 </li>
+                                <?php AppAsset::addScript($this,'@web/js/logout.js')?>
                             </ul>
                         </li>
 
