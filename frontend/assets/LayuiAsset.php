@@ -13,7 +13,8 @@ class LayuiAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'layui/css/layui.css',
-        'css/my.css'
+        'css/my.css',
+        'resources/css/background.css'
     ];
     public $js = [
         'layui/layui.js',
