@@ -63,7 +63,16 @@ echo implode($menuItems);
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2> <?php echo Yii::$app->user->identity->username ?></h2>
+                        <h2> <?php
+                            if (!Yii::$app->user->isGuest)
+                            {
+                                echo Yii::$app->user->identity->username;
+                            }
+                            else
+                            {
+                                echo 'Guest';
+                            }
+                             ?></h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -169,7 +178,17 @@ echo implode($menuItems);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt="">John Doe
+                                <img src="http://placehold.it/128x128" alt="">
+                                <?php
+                                if (!Yii::$app->user->isGuest)
+                                {
+                                    echo Yii::$app->user->identity->username;
+                                }
+                                else
+                                {
+                                    echo 'Guest';
+                                }
+                                 ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
