@@ -1,7 +1,8 @@
 <?php
+use frontend\assets\AppAsset;
 use frontend\assets\LayuiAsset;
 use yii\helpers\Html;
-
+AppAsset::register($this);
 LayuiAsset::register($this);
 
 

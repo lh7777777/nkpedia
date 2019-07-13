@@ -6,20 +6,17 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 $this->title = 'My Yii Application';
 ?>
-<div id="div1"><img src="<?php echo Url::to('@web/resources/images/02.jpg'); ?>" /></div>
-<div class="layui-container">
+<div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
+<div class="layui-container layui-anim layui-anim-upbit" id="divcon">
+    <div class="layui-row"></div>
         <div class="layui-row">
-            <div class="layui-col-md9">
             <?php $form = ActiveForm::begin(); ?>
             <?= $form->field($model, 'word')->label(false)->textInput(['class'=>'layui-input']) ?>
-            </div>
         </div>
         <div class="layui-row">
-            <div class="layui-col-md6 layui-col-md-offset3">
                 <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'layui-btn layui-btn-normal']) ?>
+                    <?= Html::submitButton('<i class="layui-icon layui-icon-search"></i>Search', ['class' => 'layui-btn layui-btn-normal layui-btn-fluid']) ?>
                 </div>
-            </div>
         </div>
 <?php ActiveForm::end(); ?>
 </div>
