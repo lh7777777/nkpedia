@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\SearchWordForm;
 
 /**
  * Site controller
@@ -75,7 +76,17 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout='laymain';
-        return $this->render('index');
+        $model = new SearchWordForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // 验证 $model 收到的数据
+
+            // 做些有意义的事 ...
+
+            return $this->render('search', ['model' => $model]);
+        } else {
+            // 无论是初始化显示还是数据验证错误
+            return $this->render('index', ['model' => $model]);
+        }
     }
 
     /**

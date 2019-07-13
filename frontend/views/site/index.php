@@ -2,9 +2,27 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 $this->title = 'My Yii Application';
 ?>
 <div id="div1"><img src="<?php echo Url::to('@web/resources/images/02.jpg'); ?>" /></div>
+<div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md9">
+            <?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($model, 'word')->label(false)->textInput(['class'=>'layui-input']) ?>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset3">
+                <div class="form-group">
+                    <?= Html::submitButton('Submit', ['class' => 'layui-btn layui-btn-normal']) ?>
+                </div>
+            </div>
+        </div>
+<?php ActiveForm::end(); ?>
+</div>
 <!--<div class="site-index">-->
 <!---->
 <!--    <div class="jumbotron">-->
