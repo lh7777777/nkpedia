@@ -7,10 +7,6 @@ namespace common\models;
  *
  * @see PediaUserPerm
  */
-/**
- * Team:没有蛀牙
- * Coding by:孙一冉 1711297，20190712
- */
 class PediaUserPermQuery extends \yii\db\ActiveQuery
 {
     /*public function active()

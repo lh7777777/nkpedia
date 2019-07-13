@@ -41,6 +41,10 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaEntryCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -59,6 +63,7 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -71,6 +76,7 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout='backcon';
         $model = new PediaEntryCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -91,6 +97,7 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -111,6 +118,7 @@ class PediaEntryCategoryController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

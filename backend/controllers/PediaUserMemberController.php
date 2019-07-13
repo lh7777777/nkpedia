@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaUserMember;
 use backend\models\PediaUserMemberSearch;
@@ -40,6 +42,10 @@ class PediaUserMemberController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserMemberSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -58,6 +64,7 @@ class PediaUserMemberController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -70,6 +77,7 @@ class PediaUserMemberController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout='backcon';
         $model = new PediaUserMember();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -90,6 +98,7 @@ class PediaUserMemberController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -110,6 +119,7 @@ class PediaUserMemberController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

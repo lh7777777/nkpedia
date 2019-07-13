@@ -40,6 +40,10 @@ class PediaUserAdornController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserAdornSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -59,6 +63,7 @@ class PediaUserAdornController extends Controller
      */
     public function actionView($uid, $mid)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($uid, $mid),
         ]);
@@ -71,6 +76,7 @@ class PediaUserAdornController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout='backcon';
         $model = new PediaUserAdorn();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -92,6 +98,7 @@ class PediaUserAdornController extends Controller
      */
     public function actionUpdate($uid, $mid)
     {
+        $this->layout='backcon';
         $model = $this->findModel($uid, $mid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -113,6 +120,7 @@ class PediaUserAdornController extends Controller
      */
     public function actionDelete($uid, $mid)
     {
+        $this->layout='backcon';
         $this->findModel($uid, $mid)->delete();
 
         return $this->redirect(['index']);

@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaUserMedal;
 use backend\models\PediaUserMedalSearch;
@@ -12,6 +15,7 @@ use yii\filters\VerbFilter;
 /**
  * Team:没有蛀牙,NKU
  * Coding by 王心荻 1711298,20190712
+ * Coding by 孙一冉 1711297,20190713
  */
 
 /**
@@ -40,6 +44,10 @@ class PediaUserMedalController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserMedalSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -58,6 +66,7 @@ class PediaUserMedalController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -70,6 +79,14 @@ class PediaUserMedalController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweddistri'];
+        if ($edit != 1) {
+            echo "<script>alert('不允许新增勋章')</script>";
+            return $this->goHome();
+        }
+        $this->layout='backcon';
         $model = new PediaUserMedal();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -90,6 +107,7 @@ class PediaUserMedalController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -110,6 +128,7 @@ class PediaUserMedalController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

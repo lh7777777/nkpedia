@@ -7,10 +7,6 @@ use yii\data\ActiveDataProvider;
 use common\models\PediaUserPerm;
 
 /**
- * Team:没有蛀牙
- * Coding by:孙一冉 1711297，20190712
- */
-/**
  * PediaUserPermSearch represents the model behind the search form of `common\models\PediaUserPerm`.
  */
 class PediaUserPermSearch extends PediaUserPerm
