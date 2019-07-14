@@ -68,7 +68,7 @@ echo implode($menuItems);
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="/nkpedia/backend/web/static/image/xiaohui.jpg" alt="..." class="img-circle profile_img">
+                        <img src="<?php echo Url::to('@web/static/image/xiaohui.jpg'); ?>" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -187,7 +187,7 @@ echo implode($menuItems);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="/nkpedia/backend/web/static/image/xiaohui.jpg" alt="">
+                                <img src="<?php echo Url::to('@web/static/image/xiaohui.jpg'); ?>" alt="">
                                 <?php
                                 if (!Yii::$app->user->isGuest)
                                 {
@@ -330,7 +330,7 @@ echo implode($menuItems);
 </div>
 <!-- /footer content -->
 <div class="profile_pic">
-    <img src="/nkpedia/backend/web/static/image/1.png" alt="..." >
+    <img src="<?php echo Url::to('@web/static/image/1.png'); ?>" alt="..." >
 </div>
 <?php $this->endBody(); ?>
 </body>
