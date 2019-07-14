@@ -84,7 +84,7 @@ class PediaEntryClassificationController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权新增分类！");
                 history.back();
@@ -117,7 +117,7 @@ class PediaEntryClassificationController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权修改分类！");
                     history.back();
@@ -150,7 +150,7 @@ class PediaEntryClassificationController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权删除分类！");
                 history.back();

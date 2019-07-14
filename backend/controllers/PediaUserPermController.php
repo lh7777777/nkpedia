@@ -82,7 +82,7 @@ class PediaUserPermController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("只有管理员可以新建权限");history.back();</script><?php
             exit("0");
         }
@@ -109,7 +109,7 @@ class PediaUserPermController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("您不能修改权限");history.back();</script><?php
             exit("0");
         }
@@ -137,7 +137,7 @@ class PediaUserPermController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("只有管理员可以删除权限");history.back();</script><?php
             exit("0");
         }
