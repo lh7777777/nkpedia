@@ -80,7 +80,7 @@ class PediaUserAboutusController extends Controller
     {
         //xd 20190713
         $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
-        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+        if ($uid!=1 && $uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
             ?><script>alert("您不是网站开发者");history.back();</script><?php
             exit(0);
         }
@@ -108,7 +108,7 @@ class PediaUserAboutusController extends Controller
     {
         //xd 20190713
         $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
-        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+        if ($uid!=1 && $uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
             ?><script>alert("您不是网站开发者");history.back();</script><?php
             exit(0);
         }
@@ -135,7 +135,7 @@ class PediaUserAboutusController extends Controller
     {
         //xd 20190713
         $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
-        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+        if ($uid!=1 && $uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
             ?><script>alert("您不是网站开发者");history.back();</script><?php
             exit(0);
         }
