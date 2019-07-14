@@ -2,6 +2,7 @@
 use frontend\assets\AppAsset;
 use frontend\assets\LayuiAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 AppAsset::register($this);
 LayuiAsset::register($this);
 
@@ -42,6 +43,7 @@ LayuiAsset::register($this);
     </ul>
     <?php LayuiAsset::addscript($this,'@web/resources/js/index.js')?>
     <div class="content">
+        <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
         <?= $content ?>
     </div>
     <?php $this->endBody() ?>

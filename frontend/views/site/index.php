@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 $this->title = 'My Yii Application';
 ?>
-<div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
+
 <div class="layui-container">
     <div class="layui-row">
         <div class="layui-col-md6 layui-col-md-offset3">

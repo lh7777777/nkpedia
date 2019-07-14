@@ -15,6 +15,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\SearchWordForm;
+use common\models\PediaEntryBasicinfo;
 
 /**
  * Site controller
@@ -81,8 +82,16 @@ class SiteController extends Controller
             // 验证 $model 收到的数据
 
             // 做些有意义的事 ...
-
-            return $this->render('search', ['model' => $model]);
+            $word=PediaEntryBasicinfo::find()->where(['title'=>$model->word]);
+            if($word->count()!=0)
+            {
+                $word=$word->one();
+                return $this->render('search', ['word'=>$word]);
+            }
+            else
+            {
+                return $this->render('error',['message'=>'There is No This Word','name'=>'Can\'t Search']);
+            }
         } else {
             // 无论是初始化显示还是数据验证错误
             return $this->render('index', ['model' => $model]);
