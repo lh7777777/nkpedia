@@ -202,7 +202,7 @@ echo implode($menuItems);
 <!--                                <li><a href="javascript:;">  Profile</a>-->
 <!--                                </li>-->
 <!--
-<!--                                <li>-->
+<!-                                <li>-->
 <!--                                    <a href="javascript:;">Help</a>-->
 <!--                                </li>-->
                                 <li>
@@ -211,8 +211,8 @@ echo implode($menuItems);
                                 <?php AppAsset::addScript($this,'@web/js/logout.js')?>
                             </ul>
                         </li>
-
-                        <li role="presentation" class="dropdown">
+                        <!--去掉信封-->
+                    <!--    <li role="presentation" class="dropdown">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
@@ -283,7 +283,7 @@ echo implode($menuItems);
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                     </ul>
                 </nav>

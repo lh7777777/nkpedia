@@ -9,9 +9,12 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\PediaUserMember;
+
 /**
  * Team:没有蛀牙,NKU
  * Coding by 王心荻 1711298,20190712
+ * Coding by 孙一冉 1711297,20190713
  */
 
 /**
@@ -75,6 +78,13 @@ class PediaUserAboutusController extends Controller
      */
     public function actionCreate()
     {
+        //xd 20190713
+        $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
+        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+            ?><script>alert("您不是网站开发者");history.back();</script><?php
+            exit(0);
+        }
+
         $this->layout='backcon';
         $model = new PediaUserAboutus();
 
@@ -96,6 +106,12 @@ class PediaUserAboutusController extends Controller
      */
     public function actionUpdate($id)
     {
+        //xd 20190713
+        $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
+        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+            ?><script>alert("您不是网站开发者");history.back();</script><?php
+            exit(0);
+        }
         $this->layout='backcon';
         $model = $this->findModel($id);
 
@@ -117,6 +133,12 @@ class PediaUserAboutusController extends Controller
      */
     public function actionDelete($id)
     {
+        //xd 20190713
+        $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
+        if ($uid!=2 && $uid!=3 && $uid!=4 && $uid!=5){
+            ?><script>alert("您不是网站开发者");history.back();</script><?php
+            exit(0);
+        }
         $this->layout='backcon';
         $this->findModel($id)->delete();
 

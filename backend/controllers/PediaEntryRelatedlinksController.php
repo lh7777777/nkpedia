@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaEntryRelatedlinks;
 use backend\models\PediaEntryRelatedlinksSearch;
@@ -14,8 +17,10 @@ use yii\filters\VerbFilter;
  */
 
 /**
- * Team:没有蛀牙,NKU
+ * Team: 没有蛀牙,NKU
  * Coding by 解亚兰 1711431,20190712
+ * Coding by 王心荻 1711298,20190713
+ * Coding by 孙一冉 1711297,20190713
  * This is the controller of pedia-entry-relatedlinks table
  */
 class PediaEntryRelatedlinksController extends Controller
@@ -77,6 +82,15 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionCreate()
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权创建相关链接");history.back();</script><?php
+            exit(0);
+        }
+
         $this->layout='backcon';
         $model = new PediaEntryRelatedlinks();
 
@@ -99,6 +113,15 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionUpdate($eid, $lid)
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权修改相关链接");history.back();</script><?php
+            exit(0);
+        }
+
         $this->layout='backcon';
         $model = $this->findModel($eid, $lid);
 
@@ -121,6 +144,15 @@ class PediaEntryRelatedlinksController extends Controller
      */
     public function actionDelete($eid, $lid)
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权删除相关链接");history.back();</script><?php
+            exit("0");
+        }
+
         $this->layout='backcon';
         $this->findModel($eid, $lid)->delete();
 

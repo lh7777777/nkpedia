@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaUserAdorn;
 use backend\models\PediaUserAdornSearch;
@@ -76,6 +79,15 @@ class PediaUserAdornController extends Controller
      */
     public function actionCreate()
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权创建用户佩戴勋章情况");history.back();</script><?php
+            exit(0);
+        }
+
         $this->layout='backcon';
         $model = new PediaUserAdorn();
 
@@ -98,6 +110,14 @@ class PediaUserAdornController extends Controller
      */
     public function actionUpdate($uid, $mid)
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权修改用户勋章佩戴情况");history.back();</script><?php
+            exit(0);
+        }
         $this->layout='backcon';
         $model = $this->findModel($uid, $mid);
 
@@ -120,6 +140,15 @@ class PediaUserAdornController extends Controller
      */
     public function actionDelete($uid, $mid)
     {
+        //xd 20190713
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("您无权删除用户勋章佩戴情况");history.back();</script><?php
+            exit(0);
+        }
+
         $this->layout='backcon';
         $this->findModel($uid, $mid)->delete();
 
