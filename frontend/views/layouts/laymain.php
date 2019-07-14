@@ -30,24 +30,39 @@ LayuiAsset::register($this);
         <?php $this->head() ?>
     </head>
     <body>
+    <div class="hidden">
+        <?php if(!Yii::$app->user->isGuest)
+        {$menuItems[] =
+            Html::beginForm(['/site/logout'], 'post',['id'=>'login-form'])
+            . Html::submitButton(
+                'Logout ',
+                ['class' => 'btn btn-link logout','id'=>'logoutbutton']
+            )
+            . Html::endForm();
+        echo implode($menuItems);}
+        ?>
+    </div>
     <?php $this->beginBody() ?>
     <ul class="layui-nav" lay-filter="">
-        <li class="layui-nav-item"><a href="">最新活动<span class="layui-icon layui-icon-username"></span></a></li>
-        <li class="layui-nav-item layui-this"><a href="/nkpedia/frontend/web/index.php?r=site%2Findex">主页</a></li>
-        <li class="layui-nav-item"><a href="">大数据</a></li>
+        <li class="layui-nav-item"><a href=""><span class="fa fa-user"></span>&nbsp;个人</a></li>
+        <li class="layui-nav-item layui-this"><a href="/nkpedia/frontend/web/index.php?r=site%2Findex"><span class="fa fa-home"></span>&nbsp;主页</a></li>
+        <li class="layui-nav-item"><a href=""><span class="fa fa-list"></span>&nbsp;热词排行</a></li>
         <li class="layui-nav-item">
-            <a href="javascript:;">解决方案</a>
-            <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                <dd><a href="">移动模块</a></dd>
-                <dd><a href="">后台模版</a></dd>
-                <dd><a href="">电商平台</a></dd>
-            </dl>
+        <?php if (Yii::$app->user->isGuest)
+            {
+                echo '<a href="javascript:;"><span class="fa fa-user-plus"></span>&nbsp;账户</a>'.
+                        '<dl class="layui-nav-child"> <!-- 二级菜单 -->'.
+                              '<dd><a href="/nkpedia/frontend/web/index.php?r=site%2Fsignup"><span class="fa fa-user-circle"></span>&nbsp;注册</a></dd>'.
+                              '<dd><a href="/nkpedia/frontend/web/index.php?r=site%2Flogin"><span class="fa fa-sign-in"></span>&nbsp;登录</a></dd>'.
+                            '</dl>';
+            }else{
+                echo '<a href="javascript:void(0);" id="logouthref"><span class="fa fa-sign-out"></span>&nbsp;退出登录</a>';
+                }?>
         </li>
-        <li class="layui-nav-item"><a href="">社区</a></li>
     </ul>
     <?php LayuiAsset::addscript($this,'@web/resources/js/index.js')?>
+    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
     <div class="content">
-        <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
         <?= $content ?>
     </div>
     <?php $this->endBody() ?>

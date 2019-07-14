@@ -14,7 +14,6 @@ $this->title = 'My Yii Application';
  * This is search page
  */
 ?>
-
 <div class="layui-container">
     <div class="layui-row">
         <div class="layui-col-md6 layui-col-md-offset3">
