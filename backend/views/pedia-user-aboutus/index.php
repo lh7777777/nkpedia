@@ -22,10 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php
-    $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
-    $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
-    $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-    if ($edit != 0) {
+    $uid = PediaUserMember::find()->where(['uid' => Yii::$app->user->identity->id])->asArray()->one()['uid'];
+    if ($uid==1 || $uid==2 || $uid==3 || $uid==4 || $uid==5) {
         ?><p>
         <?= Html::a('Create Pedia User Aboutus', ['create'], ['class' => 'btn btn-success']) ?>
         </p><?php
