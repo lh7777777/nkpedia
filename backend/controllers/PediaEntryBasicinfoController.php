@@ -4,10 +4,14 @@
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨越 1711300,20190712
+ * Coding by 孙一冉 1711297，20190713
  * This is the controller of bankend web.
  */
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaEntryBasicinfo;
 use backend\models\PediaEntryBasicinfoSearch;
@@ -41,6 +45,10 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaEntryBasicinfoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -59,6 +67,7 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -71,6 +80,18 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?>
+            <script>alert("您无权新增词条！");
+                history.back();
+            </script>
+            <?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $model = new PediaEntryBasicinfo();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -91,6 +112,18 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
+        if ($edit == 0) {
+            ?>
+            <script>alert("您无权修改词条！");
+                history.back();
+            </script>
+            <?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -111,6 +144,18 @@ class PediaEntryBasicinfoController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?>
+            <script>alert("您无权删除词条！");
+                history.back();
+            </script>
+            <?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

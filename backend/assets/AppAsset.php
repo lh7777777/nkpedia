@@ -7,12 +7,17 @@ use yii\web\AssetBundle;
 /**
  * Main backend application asset bundle.
  */
+
+/**
+* Team:没有蛀牙,NKU
+* Coding by 解亚兰 1711431,20190713
+*/
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'static/css/site.css',
     ];
     public $js = [
     ];

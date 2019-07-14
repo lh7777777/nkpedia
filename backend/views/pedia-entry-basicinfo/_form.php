@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'needperm')->textInput() ?>
 
-    <?= $form->field($model, 'edittime')->textInput() ?>
+<!--  <?//= $form->field($model, 'edittime')->textInput() ?>  -->
 
     <?= $form->field($model, 'lastediter')->textInput() ?>
 

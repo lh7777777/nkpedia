@@ -2,18 +2,25 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
 use Yii;
 use common\models\PediaUserPerm;
 use backend\models\PediaUserPermSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\PediaUserMember;
-use common\models\PediaUserGroup;
 
 /**
  * PediaUserPermController implements the CRUD actions for PediaUserPerm model.
  */
+/**
+ * Team:没有蛀牙
+ * Coding by:孙一冉 1711297，20190713
+ * Coding by:解亚兰 1711431，20190713
+ * This is the controller of pedia-user-perm
+ */
+
 class PediaUserPermController extends Controller
 {
     /**
@@ -37,7 +44,8 @@ class PediaUserPermController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest)
+        {
             return $this->goHome();
         }
         $this->layout='backcon';
@@ -58,6 +66,7 @@ class PediaUserPermController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -72,17 +81,17 @@ class PediaUserPermController extends Controller
     {
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
-        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
-        if ($edit != 1) {
-            return $this->goHome();
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?><script>alert("只有管理员可以新建权限");history.back();</script><?php
+            exit("0");
         }
-
+        $this->layout='backcon';
         $model = new PediaUserPerm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->pid]);
         }
-        $this->layout='backcon';
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -97,6 +106,14 @@ class PediaUserPermController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
+        if ($edit == 0) {
+            ?><script>alert("您不能修改权限");history.back();</script><?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -117,6 +134,14 @@ class PediaUserPermController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?><script>alert("只有管理员可以删除权限");history.back();</script><?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

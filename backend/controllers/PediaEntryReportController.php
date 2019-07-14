@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserGroup;
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaEntryReport;
 use backend\models\PediaEntryReportSearch;
@@ -14,7 +17,10 @@ use yii\filters\VerbFilter;
  */
 /**
  * Team:没有蛀牙,NKU
- * Coding by 解压了 1711431,20190712
+ * Coding by 解亚兰1711431,20190712
+ * Coding by WangXindi 1711298
+ * Coding by 孙一冉 1711297，20190714
+ * Coding by 杨越 1711300，20190714
  * This is the controller of pedia-entry-report table
  */
 class PediaEntryReportController extends Controller
@@ -40,6 +46,10 @@ class PediaEntryReportController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaEntryReportSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -58,6 +68,7 @@ class PediaEntryReportController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -70,6 +81,8 @@ class PediaEntryReportController extends Controller
      */
     public function actionCreate()
     {
+
+        $this->layout='backcon';
         $model = new PediaEntryReport();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -90,6 +103,7 @@ class PediaEntryReportController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -110,6 +124,7 @@ class PediaEntryReportController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

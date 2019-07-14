@@ -2,6 +2,7 @@
 /**
  * Team:没有蛀牙
  * Coding by yangyuzhe 1711396,20190712
+ * Coding by 王心荻 1711298,20190714
  * This is the main backond layout
  */
 /**
@@ -9,7 +10,9 @@
  * @var \yii\web\View $this
  */
 use backend\assets\AppAsset;
-use yii\helpers\Html;use yiister\gentelella\assets\Asset;
+use yii\helpers\Html;
+use yiister\gentelella\assets\Asset;
+use yii\helpers\Url;
 
 $bundle = yiister\gentelella\assets\Asset::register($this);
 
@@ -17,6 +20,13 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
+
+<!--
+/**
+* Team:没有蛀牙,NKU
+* Coding by 解亚兰 1711431,20190713
+*/>    -->
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="<?= Yii::$app->charset ?>" />
@@ -52,18 +62,27 @@ echo implode($menuItems);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                    <a href="http://www.nankai.edu.cn/" class="site_title"><i class="fa fa-paw"></i> <span>NKU</span></a>
                 </div>
                 <div class="clearfix"></div>
 
                 <!-- menu prile quick info -->
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="http://placehold.it/128x128" alt="..." class="img-circle profile_img">
+                        <img src="<?php echo Url::to('@web/static/image/xiaohui.jpg'); ?>" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2> <?php echo Yii::$app->user->identity->username ?></h2>
+                        <h2> <?php
+                            if (!Yii::$app->user->isGuest)
+                            {
+                                echo Yii::$app->user->identity->username;
+                            }
+                            else
+                            {
+                                echo 'Guest';
+                            }
+                             ?></h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -152,20 +171,7 @@ echo implode($menuItems);
                 <!-- /sidebar menu -->
 
                 <!-- /menu footer buttons -->
-                <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Settings">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Lock">
-                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Logout">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                    </a>
-                </div>
+
                 <!-- /menu footer buttons -->
             </div>
         </div>
@@ -182,29 +188,34 @@ echo implode($menuItems);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="http://placehold.it/128x128" alt="">John Doe
+                                <img src="<?php echo Url::to('@web/static/image/xiaohui.jpg'); ?>" alt="">
+                                <?php
+                                if (!Yii::$app->user->isGuest)
+                                {
+                                    echo Yii::$app->user->identity->username;
+                                }
+                                else
+                                {
+                                    echo 'Guest';
+                                }
+                                 ?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;">  Profile</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Help</a>
-                                </li>
+<!--                                <li><a href="javascript:;">  Profile</a>-->
+<!--                                </li>-->
+<!--
+<!-                                <li>-->
+<!--                                    <a href="javascript:;">Help</a>-->
+<!--                                </li>-->
                                 <li>
                                     <a href="javascript:void(0);" id="logouthref"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
                                 </li>
                                 <?php AppAsset::addScript($this,'@web/js/logout.js')?>
                             </ul>
                         </li>
-
-                        <li role="presentation" class="dropdown">
+                        <!--去掉信封-->
+                    <!--    <li role="presentation" class="dropdown">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
@@ -275,7 +286,7 @@ echo implode($menuItems);
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
 
                     </ul>
                 </nav>
@@ -319,6 +330,9 @@ echo implode($menuItems);
     <div id="notif-group" class="tabbed_notifications"></div>
 </div>
 <!-- /footer content -->
+<div class="profile_pic">
+    <img src="<?php echo Url::to('@web/static/image/1.png'); ?>" alt="..." >
+</div>
 <?php $this->endBody(); ?>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\PediaUserMember;
+use common\models\PediaUserPerm;
 use Yii;
 use common\models\PediaUserGroup;
 use backend\models\PediaUserGroupSearch;
@@ -15,6 +17,7 @@ use yii\filters\VerbFilter;
 /**
  * Team:没有蛀牙
  * Coding by:孙一冉 1711297，20190712
+ * Coding by:解亚兰 1711431，20190713
  * This is the controller of pedia-user-group
  */
 class PediaUserGroupController extends Controller
@@ -40,6 +43,10 @@ class PediaUserGroupController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $this->layout='backcon';
         $searchModel = new PediaUserGroupSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -58,6 +65,7 @@ class PediaUserGroupController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout='backcon';
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -70,6 +78,14 @@ class PediaUserGroupController extends Controller
      */
     public function actionCreate()
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?><script>alert("只有管理员可以创建用户组");history.back();</script><?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $model = new PediaUserGroup();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -90,6 +106,14 @@ class PediaUserGroupController extends Controller
      */
     public function actionUpdate($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?><script>alert("只有管理员可以更改用户组");history.back();</script><?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -110,6 +134,14 @@ class PediaUserGroupController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit == 0) {
+            ?><script>alert("只有管理员可以删除用户组");history.back();</script><?php
+            exit("0");
+        }
+        $this->layout='backcon';
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

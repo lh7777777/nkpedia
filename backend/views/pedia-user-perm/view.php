@@ -5,10 +5,6 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserPerm */
-/**
- * Team:没有蛀牙
- * Coding by:孙一冉 1711297，20190712
- */
 
 $this->title = $model->pid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Perms', 'url' => ['index']];
