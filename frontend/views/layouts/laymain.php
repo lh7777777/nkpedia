@@ -8,7 +8,7 @@ LayuiAsset::register($this);
 
 /**
  * Team:没有蛀牙,NKU
- * Coding by 杨俣哲 1711396,20190714
+ * Coding by 杨俣哲 1711396,20190713
  * This is new layout
  */
 // LayuiAsset::addScript($this, "@web/resources/js/index.js");

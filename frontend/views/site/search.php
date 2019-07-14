@@ -54,7 +54,7 @@ $this->title = 'My Yii Application';
         <div class="layui-colla-item">
             <h2 class="layui-colla-title layui-bg-gray">内容</h2>
             <div class="layui-colla-content layui-show">
-                <?php $parser=new markdown\Markdown();
+                <?php $parser=new markdown\GithubMarkdown();
                     echo $parser->parse($word->content);?>
             </div>
         </div>
