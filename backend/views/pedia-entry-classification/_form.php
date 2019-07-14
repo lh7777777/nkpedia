@@ -4,6 +4,7 @@
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨越 1711300,20190712
+ * Coding by 王心荻 1711298 20190714
  * This is the table of bankend web.
  */
 use yii\helpers\Html;
@@ -20,7 +21,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'eid')->textInput() ?>
 
-    <?= $form->field($model, 'cid')->textInput() ?>
+    <?=
+    //$titles = Yii::$app->db->createCommand('SELECT cid FROM pedia_entry_category')->queryColumn();
+    $form->field($model,'cid')->dropDownList(Yii::$app->db->createCommand('SELECT cid FROM pedia_entry_category')->queryColumn());
+    //$form->field($model, 'cid')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
