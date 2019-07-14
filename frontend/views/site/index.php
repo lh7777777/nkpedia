@@ -5,6 +5,11 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 $this->title = 'My Yii Application';
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190714
+ * This is index page
+ */
 ?>
 
 <div class="layui-container">

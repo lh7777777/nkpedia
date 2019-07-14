@@ -3,7 +3,11 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190714
+ * This is main Asset
+ */
 /**
  * Main frontend application asset bundle.
  */

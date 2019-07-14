@@ -7,6 +7,11 @@ use yii\web\View;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 $this->title = 'My Yii Application';
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190714
+ * This is search page
+ */
 ?>
 
 <div class="layui-container">
@@ -27,7 +32,7 @@ $this->title = 'My Yii Application';
                     </div>
                     <div class="layui-col-md3">
                         <div id="rate"></div>
-                        <?php LayuiAsset::addscript($this,'@web/resources/js/search.js','var gradee='.$word->grade)?>
+                        <?php LayuiAsset::addscript($this,'@web/resources/js/search.js')?>
                     </div>
                 </div>
             </div>

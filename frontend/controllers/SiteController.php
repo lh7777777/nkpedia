@@ -18,6 +18,11 @@ use frontend\models\SearchWordForm;
 use common\models\PediaEntryBasicinfo;
 
 /**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190714
+ * This is the frontend controller
+ */
+/**
  * Site controller
  */
 class SiteController extends Controller
