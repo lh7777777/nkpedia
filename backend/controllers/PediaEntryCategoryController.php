@@ -85,7 +85,7 @@ class PediaEntryCategoryController extends Controller
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
             ?>
-            <script>alert("不允许新增类别！");
+            <script>alert("您无权新增类别！");
                 history.back();
             </script>
             <?php
@@ -117,7 +117,7 @@ class PediaEntryCategoryController extends Controller
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
         if ($edit != 1) {
             ?>
-            <script>alert("不允许修改类别！");
+            <script>alert("您无权修改类别！");
                 history.back();
             </script>
             <?php
@@ -149,7 +149,7 @@ class PediaEntryCategoryController extends Controller
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
             ?>
-            <script>alert("不允许删除类别！");
+            <script>alert("您无权删除类别！");
                 history.back();
             </script>
             <?php

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨越 1711300,20190714
+ * This is the table of bankend web.
+ */
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 

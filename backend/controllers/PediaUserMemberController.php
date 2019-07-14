@@ -134,6 +134,13 @@ class PediaUserMemberController extends Controller
      */
     public function actionDelete($id)
     {
+        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
+        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
+        if ($edit != 1) {
+            ?><script>alert("只有管理员可以删除用户;history.back();</script><?php
+            exit("0");
+        }
         $this->layout='backcon';
         $this->findModel($id)->delete();
 
