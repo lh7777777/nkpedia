@@ -110,8 +110,8 @@ class PediaUserMemberController extends Controller
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
         if ($edit != 1) {
-            echo "<script>alert('只有管理员可以更改用户')</script>";
-            return $this->goHome();
+            ?><script>alert("只有管理员可以编辑用户");history.back();</script><?php
+            exit("0");
         }
         $this->layout='backcon';
         $model = $this->findModel($id);

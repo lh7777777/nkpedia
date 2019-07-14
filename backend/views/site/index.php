@@ -45,7 +45,7 @@ $this->title = 'CenturyOld NankaiPedia';
                 $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                 $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                 $edit1 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
-                if ($edit1 == 1)
+                if ($edit1 != 0)
                 {
                     echo "Allow edit word:Yes";
                 }
@@ -58,7 +58,7 @@ $this->title = 'CenturyOld NankaiPedia';
                 $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                 $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                 $edit2 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowbanuser'];
-                if ($edit2 == 1)
+                if ($edit2 != 0)
                 {
                     echo "Allow ban users:Yes";
                 }
@@ -71,7 +71,7 @@ $this->title = 'CenturyOld NankaiPedia';
                 $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                 $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                 $edit3 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-                if ($edit3 == 1)
+                if ($edit3 != 0)
                 {
                     echo "Allow create entry:Yes";
                 }
@@ -84,7 +84,7 @@ $this->title = 'CenturyOld NankaiPedia';
                 $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                 $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                 $edit4 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweddistri'];
-                if ($edit4 == 1)
+                if ($edit4 != 0)
                 {
                     echo "Allow add medals:Yes";
                 }
@@ -97,7 +97,7 @@ $this->title = 'CenturyOld NankaiPedia';
                 $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
                 $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
                 $edit5 = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedchangeperm'];
-                if ($edit5 == 1)
+                if ($edit5 != 0)
                 {
                     echo "Allow change perms:Yes";
                 }
