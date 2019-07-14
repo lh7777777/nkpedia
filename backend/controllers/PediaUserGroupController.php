@@ -81,7 +81,7 @@ class PediaUserGroupController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("只有管理员可以创建用户组");history.back();</script><?php
             exit("0");
         }
@@ -109,7 +109,7 @@ class PediaUserGroupController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("只有管理员可以更改用户组");history.back();</script><?php
             exit("0");
         }
@@ -137,7 +137,7 @@ class PediaUserGroupController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("只有管理员可以删除用户组");history.back();</script><?php
             exit("0");
         }

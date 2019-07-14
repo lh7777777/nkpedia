@@ -86,7 +86,7 @@ class PediaEntryRelatedlinksController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("您无权创建相关链接");history.back();</script><?php
             exit(0);
         }
@@ -117,7 +117,7 @@ class PediaEntryRelatedlinksController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("您无权修改相关链接");history.back();</script><?php
             exit(0);
         }
@@ -148,7 +148,7 @@ class PediaEntryRelatedlinksController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?><script>alert("您无权删除相关链接");history.back();</script><?php
             exit("0");
         }

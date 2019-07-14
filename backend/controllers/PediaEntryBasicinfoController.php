@@ -83,7 +83,7 @@ class PediaEntryBasicinfoController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权新增词条！");
                 history.back();
@@ -115,7 +115,7 @@ class PediaEntryBasicinfoController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['alloweditword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权修改词条！");
                 history.back();
@@ -147,7 +147,7 @@ class PediaEntryBasicinfoController extends Controller
         $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
         $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
         $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
+        if ($edit == 0) {
             ?>
             <script>alert("您无权删除词条！");
                 history.back();
