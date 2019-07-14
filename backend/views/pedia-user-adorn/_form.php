@@ -19,9 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'uid')->textInput() ?>
 
-    <?=
-    $form->field($model,'mid')->dropDownList(Yii::$app->db->createCommand('SELECT mid FROM pedia_user_medal')->queryColumn());
-    //$form->field($model, 'mid')->textInput() ?>
+    <?php
+    $medal=\common\models\PediaUserMedal::find()->all();
+    $listdata=\yii\helpers\ArrayHelper::map($medal,'mid','mname');
+    echo $form->field($model,'mid')->dropDownList($listdata,['prompt'=>'请选择勋章']);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

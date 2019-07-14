@@ -21,10 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'eid')->textInput() ?>
 
-    <?=
-    //$titles = Yii::$app->db->createCommand('SELECT cid FROM pedia_entry_category')->queryColumn();
-    $form->field($model,'cid')->dropDownList(Yii::$app->db->createCommand('SELECT cid FROM pedia_entry_category')->queryColumn());
-    //$form->field($model, 'cid')->textInput() ?>
+    <?php
+    $categories=\common\models\PediaEntryCategory::find()->all();
+    $listData=\yii\helpers\ArrayHelper::map($categories,'cid','category');
+    echo $form->field($model,'cid')->dropDownList($listData,['prompt'=>'请选择类别']);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
