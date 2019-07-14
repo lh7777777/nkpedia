@@ -29,7 +29,7 @@ LayuiAsset::register($this);
     <?php $this->beginBody() ?>
     <ul class="layui-nav" lay-filter="">
         <li class="layui-nav-item"><a href="">最新活动<span class="layui-icon layui-icon-username"></span></a></li>
-        <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+        <li class="layui-nav-item layui-this"><a href="/nkpedia/frontend/web/index.php?r=site%2Findex">主页</a></li>
         <li class="layui-nav-item"><a href="">大数据</a></li>
         <li class="layui-nav-item">
             <a href="javascript:;">解决方案</a>
