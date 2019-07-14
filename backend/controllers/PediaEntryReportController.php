@@ -20,6 +20,7 @@ use yii\filters\VerbFilter;
  * Coding by 解亚兰1711431,20190712
  * Coding by WangXindi 1711298
  * Coding by 孙一冉 1711297，20190714
+ * Coding by 杨越 1711300，20190714
  * This is the controller of pedia-entry-report table
  */
 class PediaEntryReportController extends Controller
@@ -80,13 +81,7 @@ class PediaEntryReportController extends Controller
      */
     public function actionCreate()
     {
-        $gid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
-        $pid = PediaUserGroup::find()->where(['gid' => $gid])->asArray()->one()['pid'];
-        $edit = PediaUserPerm::find()->where(['pid' => $pid])->asArray()->one()['allowedcreword'];
-        if ($edit != 1) {
-            ?><script>alert("您不可以创建举报记录");history.back();</script><?php
-            exit("0");
-        }
+
         $this->layout='backcon';
         $model = new PediaEntryReport();
 
