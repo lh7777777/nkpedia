@@ -3,7 +3,9 @@ layui.use('rate', function(){
 
     //渲染
     var ins1 = rate.render({
-        elem: '#rate',  //绑定元素
-        value: gradee
+        elem: '#rate', //绑定元素
+        text:true,
+        half:true,
+        value:3.0
     });
 });

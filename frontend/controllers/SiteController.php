@@ -87,10 +87,12 @@ class SiteController extends Controller
             // 验证 $model 收到的数据
 
             // 做些有意义的事 ...
-            $word=PediaEntryBasicinfo::find()->where(['title'=>$model->word]);
+            $word=PediaEntryBasicinfo::find()->where(['like','title',$model->word]);
             if($word->count()!=0)
             {
                 $word=$word->one();
+                $word->clicktimes+=1;
+                $word->update();
                 return $this->render('search', ['word'=>$word]);
             }
             else
