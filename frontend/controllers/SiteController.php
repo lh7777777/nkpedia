@@ -14,7 +14,14 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\SearchWordForm;
+use common\models\PediaEntryBasicinfo;
 
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190714
+ * This is the frontend controller
+ */
 /**
  * Site controller
  */
@@ -74,7 +81,28 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout='laymain';
+        $model = new SearchWordForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // 验证 $model 收到的数据
+
+            // 做些有意义的事 ...
+            $word=PediaEntryBasicinfo::find()->where(['like','title',$model->word]);
+            if($word->count()!=0)
+            {
+                $word=$word->one();
+                $word->clicktimes+=1;
+                $word->update();
+                return $this->render('search', ['word'=>$word]);
+            }
+            else
+            {
+                return $this->render('error',['message'=>'There is No This Word','name'=>'Can\'t Search']);
+            }
+        } else {
+            // 无论是初始化显示还是数据验证错误
+            return $this->render('index', ['model' => $model]);
+        }
     }
 
     /**
@@ -84,6 +112,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout='laymain';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -152,6 +181,7 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+        $this->layout='laymain';
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
