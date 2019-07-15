@@ -3,7 +3,11 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190713
+ * This is ui Asset
+ */
 /**
  * Main backend application asset bundle.
  */
@@ -13,7 +17,9 @@ class LayuiAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'layui/css/layui.css',
-        'css/my.css'
+        'css/my.css',
+        'resources/css/background.css',
+        'font-awesome/css/font-awesome.css'
     ];
     public $js = [
         'layui/layui.js',
