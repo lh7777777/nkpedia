@@ -106,6 +106,17 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays ranking page
+     *
+     * @return mixed
+     */
+    public function actionRank()
+    {
+        $this->layout='laymain';
+        return $this->render('rank');
+    }
+
+    /**
      * Logs in a user.
      *
      * @return mixed

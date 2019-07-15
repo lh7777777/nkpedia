@@ -7,6 +7,8 @@ use yii\web\View;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use cebe\markdown;
+use common\models\PediaEntryClassification;
+use common\models\PediaEntryCategory;
 $this->title = 'My Yii Application';
 /**
  * Team:没有蛀牙,NKU
@@ -59,31 +61,27 @@ $this->title = 'My Yii Application';
                         <i class="layui-icon layui-timeline-axis layui-bg-gray">&#xe63f;</i>
                         <div class="layui-timeline-content layui-text">
                             <h3 class="layui-timeline-title">词条类别</h3>
-                            <p>杜甫的思想核心是儒家的仁政思想，他有“<em>致君尧舜上，再使风俗淳</em>”的宏伟抱负。个人最爱的名篇有：</p>
-                            <ul>
-                                <li>《登高》</li>
-                                <li>《茅屋为秋风所破歌》</li>
-                            </ul>
+                            <br>
+                            <?php $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
+                                foreach ($cates as $cate)
+                                {
+                                    $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
+                                    echo  '<button type="button" class="layui-btn layui-btn-radius layui-btn-warm">'.$cname->category.'</button>';
+                                }
+                            ?>
                         </div>
                     </li>
                     <li class="layui-timeline-item">
                         <i class="layui-icon layui-timeline-axis layui-bg-gray">&#xe63f;</i>
                         <div class="layui-timeline-content layui-text">
                             <h3 class="layui-timeline-title">相关词汇</h3>
-                            <p>
-                                中国人民抗日战争胜利72周年
-                                <br>常常在想，尽管对这个国家有这样那样的抱怨，但我们的确生在了最好的时代
-                                <br>铭记、感恩
-                                <br>所有为中华民族浴血奋战的英雄将士
-                                <br>永垂不朽
-                            </p>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="layui-colla-item">
-            <h2 class="layui-colla-title layui-bg-gray">内容</h2>
+            <h2 class="layui-colla-title layui-bg-gray">详细解释</h2>
             <div class="layui-colla-content layui-show">
                 <?php $parser=new markdown\GithubMarkdown();
                     echo $parser->parse($word->content);?>
