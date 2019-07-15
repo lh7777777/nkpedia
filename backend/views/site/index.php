@@ -1,9 +1,9 @@
 <?php
 /**
  * Team:没有蛀牙,NKU
- * Coding by 杨越 1711300,20190713
- * Coding by 孙一冉 1711297，20190713
- * Coding by 王心荻 1711298,20190714
+ * Coding by 杨  越 1711300 20190713
+ * Coding by 孙一冉 1711297 20190713
+ * Coding by 王心荻 1711298 20190714
  * This is the view of bankend web.
  */
 
@@ -109,9 +109,14 @@ $this->title = 'CenturyOld NankaiPedia';
         </div>
     </div>
     <div id="w2" class="x_panel"><div class="x_title"><h1><i class="fa fa-grav"></i> Your Medal</h1><div class="clearfix"></div></div><div class="x_content">
-            <p style="width: 100%;height: 20px;display: block;line-height: 20px;text-align: left;font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <p style="width: 100%;height: 20px;display: block;line-height: 20px;text-align: left;font-size: 20px"><?php
+                $loginid = PediaUserMember::find()->where(['loginname' => Yii::$app->user->identity->username])->asArray()->one()['gid'];
+                $info = Yii::$app->db->createCommand('SELECT mname FROM pedia_user_medal,pedia_user_adorn where pedia_user_medal.mid=pedia_user_adorn.mid and pedia_user_adorn.uid=('.$loginid.')')->queryColumn();
+                reset($info);
+                foreach ($info as $temp){
+                    echo $temp;
+                }
+                ?></p>
 
         </div>
 
