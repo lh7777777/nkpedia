@@ -63,10 +63,11 @@ $this->title = 'My Yii Application';
                             <h3 class="layui-timeline-title">词条类别</h3>
                             <br>
                             <?php $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
-                                foreach ($cates as $cate)
+                            $colors=array('','layui-btn-normal','layui-btn-warm','layui-btn-danger');
+                            foreach ($cates as $cate)
                                 {
                                     $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
-                                    echo  '<button type="button" class="layui-btn layui-btn-radius layui-btn-warm">'.$cname->category.'</button>';
+                                    echo  '<button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button>';
                                 }
                             ?>
                         </div>

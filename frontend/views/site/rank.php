@@ -1,7 +1,10 @@
 <?php
 
+use common\models\PediaEntryCategory;
+use common\models\PediaEntryClassification;
 use frontend\assets\LayuiAsset;
 use yii\helpers\Url;
+use common\models\PediaEntryBasicinfo;
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨俣哲 1711396,20190715
@@ -18,28 +21,34 @@ use yii\helpers\Url;
 <div class="layui-container">
     <table class="layui-table" lay-skin="line">
         <colgroup>
-            <col width="150">
-            <col width="200">
+            <col width="650">
             <col>
+            <col width="100">
         </colgroup>
         <thead>
         <tr>
             <th>热点词条</th>
-            <th>点击次数</th>
             <th>词条类别</th>
+            <th>点击次数</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>贤心</td>
-            <td>2016-11-29</td>
-            <td>人生就像是一场修行</td>
-        </tr>
-        <tr>
-            <td>许闲心</td>
-            <td>2016-11-28</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-        </tr>
+        <?php $words=PediaEntryBasicinfo::findBySql('SELECT eid,title,clicktimes FROM pedia_entry_basicinfo ORDER BY clicktimes DESC')->all();
+                $colors=array('','layui-btn-normal','layui-btn-warm','layui-btn-danger');
+            foreach ($words as $word)
+            {
+                echo '<tr>'.
+                    '<td>'.$word->title.'</td>'.
+                    '<td><div class="layui-btn-container">';
+                $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
+                foreach ($cates as $cate)
+                {
+                    $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
+                    echo  '<button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button>';
+                }
+                echo '</div></td>'. '<td>'.$word->clicktimes.'</td>';
+            }
+        ?>
         </tbody>
     </table>
 </div>
