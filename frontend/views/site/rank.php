@@ -18,7 +18,7 @@ use common\models\PediaEntryBasicinfo;
         </div>
     </div>
 </div>
-<div class="layui-container">
+<div class="layui-container layui-anim layui-anim-upbit">
     <table class="layui-table" lay-skin="line">
         <colgroup>
             <col width="650">
@@ -38,13 +38,13 @@ use common\models\PediaEntryBasicinfo;
             foreach ($words as $word)
             {
                 echo '<tr>'.
-                    '<td>'.$word->title.'</td>'.
+                    '<td>'.$word->title.'<div class="layui-btn-container"><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'"><button class="layui-btn layui-btn-xs layui-btn-normal">查看</button></a></div></td>'.
                     '<td><div class="layui-btn-container">';
                 $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
                 foreach ($cates as $cate)
                 {
                     $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
-                    echo  '<button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button>';
+                    echo  '<a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Fcategory&cid='.$cate->cid.'"><button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button></a>';
                 }
                 echo '</div></td>'. '<td>'.$word->clicktimes.'</td>';
             }

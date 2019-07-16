@@ -67,7 +67,7 @@ $this->title = 'My Yii Application';
                             foreach ($cates as $cate)
                                 {
                                     $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
-                                    echo  '<button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button>';
+                                    echo  '<a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Fcategory&cid='.$cate->cid.'"><button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button></a>';
                                 }
                             ?>
                         </div>

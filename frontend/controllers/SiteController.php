@@ -79,9 +79,25 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($wordse=null)
     {
         $this->layout='laymain';
+        if($wordse!=null)
+        {
+            // 做些有意义的事 ...
+            $wordsi=PediaEntryBasicinfo::find()->where(['title'=>$wordse]);
+            if($wordsi->count()!=0)
+            {
+                $wordsi=$wordsi->one();
+                $wordsi->clicktimes+=1;
+                $wordsi->update();
+                return $this->render('search', ['word'=>$wordsi]);
+            }
+            else
+            {
+                return $this->render('error',['message'=>'There is No This Word','name'=>'Can\'t Search']);
+            }
+        }
         $model = new SearchWordForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             // 验证 $model 收到的数据
@@ -116,6 +132,16 @@ class SiteController extends Controller
         return $this->render('rank');
     }
 
+    /**
+     * Displays category page
+     *
+     * @return mixed
+     */
+    public function actionCategory($cid)
+    {
+        $this->layout='laymain';
+        return $this->render('category',['cid'=>$cid]);
+    }
     /**
      * Logs in a user.
      *
