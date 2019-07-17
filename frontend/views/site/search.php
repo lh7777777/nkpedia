@@ -9,12 +9,18 @@ use yii\helpers\Html;
 use cebe\markdown;
 use common\models\PediaEntryClassification;
 use common\models\PediaEntryCategory;
+use common\models\PediaEntryHistoryversion;
 $this->title = 'My Yii Application';
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨俣哲 1711396,20190714
  * This is search page
  */
+?>
+<?php if($report!=null)
+{
+    LayuiAsset::addScript($this, "@web/resources/js/report.js");
+}
 ?>
 <div class="layui-container">
     <div class="layui-row">
@@ -35,13 +41,32 @@ $this->title = 'My Yii Application';
                     <div class="layui-row pull-right">
                         评个分？
                         <div id="rate" ></div>
-                        <?php LayuiAsset::addscript($this,'@web/resources/js/search.js')?>
+                        <?php $this->beginBlock('rate')?>
+                        layui.use('rate', function(){
+                        var rate = layui.rate;
+
+                        //渲染
+                        var ins1 = rate.render({
+                        elem: '#rate', //绑定元素
+                        text:true,
+                        half:true,
+                        value:3.0,
+                        choose:function (value) {
+                        }
+                        });
+                        });
+                        <?php $this->endBlock()?>
+                        <?php $this->registerJs($this->blocks['rate'], \yii\web\View::POS_END); ?>
                     </div>
                     <div class="layui-row text-right">
-                        <small>当前点击数:<?=Html::encode("$word->clicktimes")?></small>
+                        <small>当前点击数:<?=Html::encode("$word->clicktimes")?> 当前评分:<?=Html::encode("$word->grade")?></small>
                     </div>
                     <div class="layui-row text-right">
-                        <small>当前评分:<?=Html::encode("$word->grade")?></small>
+                        <a target="_self" href="/nkpedia/frontend/web/index.php?r=pedia-entry-basicinfo%2Fupdate&id=<?php echo $word->eid;?>"><small>编辑当前词条</small></a>
+                        <a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse=<?php echo $word->title;?>&report=
+                        <?php $vid=PediaEntryHistoryversion::find()->where(['eid'=>$word->eid])->orderBy('edit_time DESC')->one();
+                            echo $vid->vid;
+                        ?>"><small>举报当前词条</small></a>
                     </div>
                 </div>
             </div>

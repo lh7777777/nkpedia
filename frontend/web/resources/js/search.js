@@ -6,6 +6,9 @@ layui.use('rate', function(){
         elem: '#rate', //绑定元素
         text:true,
         half:true,
-        value:3.0
+        value:3.0,
+        choose:function (value) {
+            
+        }
     });
 });

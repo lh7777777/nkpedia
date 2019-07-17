@@ -1,7 +1,7 @@
 <?php
 /**
  * Team:没有蛀牙
- * Coding by yangyuzhe 1711396,20190712
+ * Coding by 杨俣哲 1711396,20190712
  * Coding by 王心荻 1711298,20190714
  * This is the main backond layout
  */
@@ -21,11 +21,6 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 
-<!--
-/**
-* Team:没有蛀牙,NKU
-* Coding by 解亚兰 1711431,20190713
-*/>    -->
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
