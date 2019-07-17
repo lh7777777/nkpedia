@@ -8,6 +8,14 @@ use common\models\PediaEntryBasicinfoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\PediaUserMember;
+use common\models\PediaUserGroup;
+use common\models\PediaUserPerm;
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190717
+ * This is basicinfo controller page
+ */
 
 /**
  * PediaEntryBasicinfoController implements the CRUD actions for PediaEntryBasicinfo model.
@@ -44,6 +52,13 @@ class PediaEntryBasicinfoController extends Controller
             return $this->redirect(['site/login']);
         }
         $model = $this->findModel($id);
+        $gid=PediaUserMember::find()->where(['loginname'=>Yii::$app->user->identity->username])->one()->gid;
+        $pid=PediaUserGroup::find()->where(['gid'=>$gid])->one()->pid;
+        $wordperm=PediaUserPerm::find()->where(['pid'=>$pid])->one()->alloweditword;
+        if($wordperm<$model->needperm)
+        {
+            return $this->render('site/error',['message'=>'You don\'t have the perm','name'=>'Perm problem']);
+        }
         $this->layout='laymain';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['site/index', 'wordse' => $model->title]);

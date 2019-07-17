@@ -7,6 +7,12 @@ use common\models\PediaUserMember;
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaEntryBasicinfo */
 /* @var $form yii\widgets\ActiveForm */
+
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 杨俣哲 1711396,20190717
+ * This is form page
+ */
 ?>
 
 <div class="pedia-entry-basicinfo-form">
