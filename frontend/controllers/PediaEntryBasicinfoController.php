@@ -51,15 +51,15 @@ class PediaEntryBasicinfoController extends Controller
         {
             return $this->redirect(['site/login']);
         }
+        $this->layout='laymain';
         $model = $this->findModel($id);
         $gid=PediaUserMember::find()->where(['loginname'=>Yii::$app->user->identity->username])->one()->gid;
         $pid=PediaUserGroup::find()->where(['gid'=>$gid])->one()->pid;
         $wordperm=PediaUserPerm::find()->where(['pid'=>$pid])->one()->alloweditword;
         if($wordperm<$model->needperm)
         {
-            return $this->render('site/error',['message'=>'You don\'t have the perm','name'=>'Perm problem']);
+            return $this->render('//site/error',['message'=>'You don\'t have the perm','name'=>'Perm problem']);
         }
-        $this->layout='laymain';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['site/index', 'wordse' => $model->title]);
         }
