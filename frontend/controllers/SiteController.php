@@ -124,7 +124,7 @@ class SiteController extends Controller
                 }
                 $word->clicktimes+=1;
                 $word->update();
-                return $this->render('search', ['word'=>$word]);
+                return $this->render('search', ['word'=>$word,'report'=>$report]);
             }
             else
             {
