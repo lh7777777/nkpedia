@@ -42,7 +42,7 @@ use common\models\PediaEntryBasicinfo;
             $eid=$category->eid;
             $word=PediaEntryBasicinfo::find()->where(['eid'=>$eid])->one();
             echo '<tr>'.
-                '<td>'.$word->title.'<div class="layui-btn-container"><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'"><button class="layui-btn layui-btn-xs layui-btn-normal">查看</button></a></div></td>'.
+                '<td><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'">'.$word->title.'</a></td>'.
                 '<td><div class="layui-btn-container">';
             $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
             foreach ($cates as $cate)
