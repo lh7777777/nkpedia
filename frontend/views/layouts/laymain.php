@@ -59,9 +59,10 @@ LayuiAsset::register($this);
                 echo '<a href="javascript:void(0);" id="logouthref"><span class="fa fa-sign-out"></span>&nbsp;退出登录</a>';
                 }?>
         </li>
+        <li class="layui-nav-item" id="aboutus"><a href=""><span class="fa fa-info"></span>&nbsp;关于我们</a></li>
     </ul>
     <?php LayuiAsset::addscript($this,'@web/resources/js/index.js')?>
-    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
+    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/'.rand(8,10).'.jpg'); ?>" /></div>
     <div class="content">
         <?= $content ?>
     </div>

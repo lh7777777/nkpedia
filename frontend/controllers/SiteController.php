@@ -157,6 +157,18 @@ class SiteController extends Controller
         $this->layout='laymain';
         return $this->render('category',['cid'=>$cid]);
     }
+
+    /**
+     * Displays aboutus page
+     *
+     * @return mixed
+     */
+    public function actionAboutus()
+    {
+        $this->layout='laymain';
+        return $this->render('aboutus');
+    }
+
     /**
      * Logs in a user.
      *
