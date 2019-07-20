@@ -44,7 +44,7 @@ LayuiAsset::register($this);
     </div>
     <?php $this->beginBody() ?>
     <ul class="layui-nav" lay-filter="">
-        <li class="layui-nav-item" id="person"><a href=""><span class="fa fa-user"></span>&nbsp;个人</a></li>
+        <li class="layui-nav-item" id="person"><a href="/nkpedia/backend/web/index.php?r=site%2Findex"><span class="fa fa-user"></span>&nbsp;个人</a></li>
         <li class="layui-nav-item" id="index"><a href="/nkpedia/frontend/web/index.php?r=site%2Findex"><span class="fa fa-home"></span>&nbsp;主页</a></li>
         <li class="layui-nav-item" id="rank"><a href="/nkpedia/frontend/web/index.php?r=site%2Frank"><span class="fa fa-list"></span>&nbsp;热词排行</a></li>
         <li class="layui-nav-item">

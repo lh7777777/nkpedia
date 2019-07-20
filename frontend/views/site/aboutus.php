@@ -250,7 +250,7 @@ use yii\helpers\Url;
         <div class="layui-card-header">确定思路</div>
         <div class="layui-card-body">
             <div class="layui-progress layui-progress-big" lay-showPercent="yes" lay-filter="one">
-                <div class="layui-progress-bar layui-bg-orange" lay-percent="25%"></div>
+                <div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
             </div>
         </div>
     </div>
