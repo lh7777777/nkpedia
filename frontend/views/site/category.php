@@ -41,6 +41,10 @@ use common\models\PediaEntryBasicinfo;
         {
             $eid=$category->eid;
             $word=PediaEntryBasicinfo::find()->where(['eid'=>$eid])->one();
+            if($word->isshow==0)
+            {
+                continue;
+            }
             echo '<tr>'.
                 '<td><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'">'.$word->title.'</a></td>'.
                 '<td><div class="layui-btn-container">';
