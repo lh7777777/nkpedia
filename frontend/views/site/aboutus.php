@@ -90,7 +90,7 @@ use yii\helpers\Url;
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
-                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                    <img src="<?php echo Url::to('@web/resources/images/bp.JPG')?>" alt="" width="350" length="300" class="img-thumbnail">
                 </div>
                 <br>
             <div class="layui-row">
@@ -129,7 +129,7 @@ use yii\helpers\Url;
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
-                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                    <img src="<?php echo Url::to('@web/resources/images/yue.jpg')?>" alt="" width="450" class="img-thumbnail">
                 </div>
                 <br>
                 <div class="layui-row">
@@ -167,7 +167,7 @@ use yii\helpers\Url;
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
-                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                    <img src="<?php echo Url::to('@web/resources/images/ji.jpg')?>" alt="" width="400" class="img-thumbnail">
                 </div>
                 <br>
                 <div class="layui-row">
@@ -205,7 +205,7 @@ use yii\helpers\Url;
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
-                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                    <img src="<?php echo Url::to('@web/resources/images/gui.jpg')?>" alt="" width="400" class="img-thumbnail">
                 </div>
                 <br>
                 <div class="layui-row">
