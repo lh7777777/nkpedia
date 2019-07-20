@@ -20,33 +20,33 @@ layui.use(['carousel','element'], function(){
             element.progress('one', '60%');
             element.progress('two', '45%');
             element.progress('three', '30%');
-            element.progress('four', '60%');
+            element.progress('four', '50%');
         }else if(obj.index==1)
         {
-            element.progress('one', '60%');
-            element.progress('two', '45%');
-            element.progress('three', '30%');
-            element.progress('four', '60%');
+            element.progress('one', '10%');
+            element.progress('two', '10%');
+            element.progress('three', '20%');
+            element.progress('four', '12.5%');
         }else if(obj.index==2)
         {
-            element.progress('one', '60%');
-            element.progress('two', '45%');
-            element.progress('three', '30%');
-            element.progress('four', '60%');
+            element.progress('one', '10%');
+            element.progress('two', '20%');
+            element.progress('three', '20%');
+            element.progress('four', '12.5%');
 
         }else if(obj.index==3)
         {
-            element.progress('one', '60%');
-            element.progress('two', '45%');
-            element.progress('three', '30%');
-            element.progress('four', '60%');
+            element.progress('one', '10%');
+            element.progress('two', '15%');
+            element.progress('three', '15%');
+            element.progress('four', '12.5%');
 
         }else if(obj.index==4)
         {
-            element.progress('one', '60%');
-            element.progress('two', '45%');
-            element.progress('three', '30%');
-            element.progress('four', '60%');
+            element.progress('one', '10%');
+            element.progress('two', '10%');
+            element.progress('three', '15%');
+            element.progress('four', '12.5%');
         }
     });
 });
