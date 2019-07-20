@@ -88,10 +88,159 @@ use yii\helpers\Url;
 <!--                    </li>-->
 <!--                </ul>-->
             </div>
-            <div>条目2</div>
-            <div>条目3</div>
-            <div>条目4</div>
-            <div>条目5</div>
+            <div class="layui-container">
+                <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
+                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                </div>
+                <br>
+            <div class="layui-row">
+                <div class="layui-col-md3" style="position: relative; left: 100px;">
+                    <i class="fa fa-user fa-2x">姓名</i>
+                </div>
+            </div>
+            <div class="layui-row">
+                <div class="layui-col-md3" style="position: relative; left: 100px;">
+                    <p class="h4">孙一冉</p>
+                </div>
+            </div>
+            <br>
+            <div class="layui-row">
+                <div class="layui-col-md3" style="position: relative; left: 100px;">
+                    <i class="fa fa-info-circle fa-2x">学号</i>
+                </div>
+            </div>
+            <div class="layui-row">
+                <div class="layui-col-md3" style="position: relative; left: 100px;">
+                    <p class="h4">1711297</p>
+                </div>
+            </div>
+            <br>
+            <div class="layui-row">
+                <div class="layui-col-md3" style="position: relative; left: 100px;">
+                    <i class="fa fa-superpowers fa-2x">Something to say</i>
+                </div>
+            </div>
+            <div class="layui-row">
+                <div class="layui-col-md10" style="position: relative; left: 100px;">
+                    <p class="h4">我只愿你历遍山河，觉得人间值得。</p>
+                    <p class="h4 text-right">——《禾叔的杂货铺》</p>
+                </div>
+            </div>
+            </div>
+            <div class="layui-container">
+                <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
+                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-user fa-2x">姓名</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">杨越</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-info-circle fa-2x">学号</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">1711300</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-superpowers fa-2x">Something to say</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md10" style="position: relative; left: 100px;">
+                        <p class="h4">如梦似幻，你是我的neverland</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-container">
+                <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
+                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-user fa-2x">姓名</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">王心荻</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-info-circle fa-2x">学号</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">1711298</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-superpowers fa-2x">Something to say</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md10" style="position: relative; left: 100px;">
+                        <p class="h4">心之所向 素履以往 生如逆旅 一苇以航</p>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-container">
+                <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
+                    <img src="<?php echo Url::to('@web/resources/images/scp.gif')?>" alt="" width="400" class="img-thumbnail">
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-user fa-2x">姓名</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">解亚兰</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-info-circle fa-2x">学号</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <p class="h4">1711431</p>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <div class="layui-col-md3" style="position: relative; left: 100px;">
+                        <i class="fa fa-superpowers fa-2x">Something to say</i>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md10" style="position: relative; left: 100px;">
+                        <p class="h4">我们跟随内心的声音，就这样朝前走着</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
