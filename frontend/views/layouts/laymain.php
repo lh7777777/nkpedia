@@ -59,12 +59,23 @@ LayuiAsset::register($this);
                 echo '<a href="javascript:void(0);" id="logouthref"><span class="fa fa-sign-out"></span>&nbsp;退出登录</a>';
                 }?>
         </li>
+        <li class="layui-nav-item" id="aboutus"><a href="/nkpedia/frontend/web/index.php?r=site%2Faboutus"><span class="fa fa-info"></span>&nbsp;关于我们</a></li>
     </ul>
     <?php LayuiAsset::addscript($this,'@web/resources/js/index.js')?>
-    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/07.png'); ?>" /></div>
-    <div class="content">
+    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/'.rand(8,10).'.jpg'); ?>" /></div>
+<!--    <div class="content">-->
         <?= $content ?>
-    </div>
+<!--    </div>-->
+    <footer class="layui-bg-black" id="footer" style="bottom: 0;position: relative;">
+        <hr>
+        <div class="copyright ">
+            <div class="container text-center fsize12">
+                @没有蛀牙团队
+            </div>
+        </div>
+        <br>
+    </footer>
+
     <?php $this->endBody() ?>
     </body>
     </html>

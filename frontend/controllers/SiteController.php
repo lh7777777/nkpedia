@@ -16,7 +16,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\SearchWordForm;
 use common\models\PediaEntryBasicinfo;
-
+use common\models\PediaEntryReport;
 /**
  * Team:没有蛀牙,NKU
  * Coding by 杨俣哲 1711396,20190714
@@ -79,9 +79,16 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex($wordse=null)
+    public function actionIndex($wordse=null,$report=null)
     {
         $this->layout='laymain';
+        if($report!=null)
+        {
+            $reportcol=new PediaEntryReport();
+            $reportcol->vid=$report;
+            $reportcol->description='举报词条';
+            $reportcol->save();
+        }
         if($wordse!=null)
         {
             // 做些有意义的事 ...
@@ -89,9 +96,13 @@ class SiteController extends Controller
             if($wordsi->count()!=0)
             {
                 $wordsi=$wordsi->one();
+                if($wordsi->isshow==0)
+                {
+                    return $this->render('error',['message'=>'There is No This Word','name'=>'Can\'t Search']);
+                }
                 $wordsi->clicktimes+=1;
                 $wordsi->update();
-                return $this->render('search', ['word'=>$wordsi]);
+                return $this->render('search', ['word'=>$wordsi,'report'=>$report]);
             }
             else
             {
@@ -107,9 +118,13 @@ class SiteController extends Controller
             if($word->count()!=0)
             {
                 $word=$word->one();
+                if($word->isshow==0)
+                {
+                    return $this->render('error',['message'=>'There is No This Word','name'=>'Can\'t Search']);
+                }
                 $word->clicktimes+=1;
                 $word->update();
-                return $this->render('search', ['word'=>$word]);
+                return $this->render('search', ['word'=>$word,'report'=>$report]);
             }
             else
             {
@@ -142,6 +157,18 @@ class SiteController extends Controller
         $this->layout='laymain';
         return $this->render('category',['cid'=>$cid]);
     }
+
+    /**
+     * Displays aboutus page
+     *
+     * @return mixed
+     */
+    public function actionAboutus()
+    {
+        $this->layout='laymain';
+        return $this->render('aboutus');
+    }
+
     /**
      * Logs in a user.
      *
