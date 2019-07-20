@@ -250,7 +250,7 @@ use yii\helpers\Url;
         <div class="layui-card-header">确定思路</div>
         <div class="layui-card-body">
             <div class="layui-progress layui-progress-big" lay-showPercent="yes" lay-filter="one">
-                <div class="layui-progress-bar layui-bg-orange" lay-percent="60%"></div>
+                <div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
             </div>
         </div>
     </div>
@@ -266,7 +266,7 @@ use yii\helpers\Url;
         <div class="layui-card-header">文档书写</div>
         <div class="layui-card-body">
             <div class="layui-progress layui-progress-big" lay-showPercent="yes" lay-filter="three">
-                <div class="layui-progress-bar layui-bg-blue" lay-percent="30%"></div>
+                <div class="layui-progress-bar layui-bg-blue" lay-percent="15%"></div>
             </div>
         </div>
     </div>
@@ -274,7 +274,7 @@ use yii\helpers\Url;
         <div class="layui-card-header">编写代码</div>
         <div class="layui-card-body">
             <div class="layui-progress layui-progress-big" lay-showPercent="yes" lay-filter="four">
-                <div class="layui-progress-bar layui-bg-cyan" lay-percent="60%"></div>
+                <div class="layui-progress-bar layui-bg-cyan" lay-percent="50%"></div>
             </div>
         </div>
     </div>

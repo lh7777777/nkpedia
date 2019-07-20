@@ -20,7 +20,7 @@ $this->title = 'CenturyOld NankaiPedia';
     <div class="jumbotron">
         <h1>NKpedia</h1>
         <p class="lead">You have successfully entered our CenturyOld NankaiPedia.</p>
-        <p><a class="btn btn-lg btn-success" href="http://localhost:8000/nkpedia/frontend/web/index.php">Click here to visit frontend!</a></p>
+        <p><a class="btn btn-lg btn-success" href="/nkpedia/frontend/web/index.php">Click here to visit frontend!</a></p>
     </div>
 
 <!--<div class="right_col" role="main">-->
