@@ -33,20 +33,25 @@ use common\models\PediaEntryBasicinfo;
         </tr>
         </thead>
         <tbody>
-        <?php $words=PediaEntryBasicinfo::findBySql('SELECT eid,title,clicktimes FROM pedia_entry_basicinfo ORDER BY clicktimes DESC')->all();
+        <?php $words=PediaEntryBasicinfo::findBySql('SELECT eid,title,clicktimes,isshow FROM pedia_entry_basicinfo ORDER BY clicktimes DESC')->all();
                 $colors=array('','layui-btn-normal','layui-btn-warm','layui-btn-danger');
             foreach ($words as $word)
             {
-                echo '<tr>'.
-                    '<td><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'">'.$word->title.'</a></td>'.
-                    '<td><div class="layui-btn-container">';
-                $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
-                foreach ($cates as $cate)
+                if($word->isshow==0)
                 {
-                    $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
-                    echo  '<a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Fcategory&cid='.$cate->cid.'"><button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button></a>';
+                    continue;
                 }
-                echo '</div></td>'. '<td>'.$word->clicktimes.'</td>';
+                    echo '<tr>'.
+                        '<td><a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Findex&wordse='.$word->title.'">'.$word->title.'</a></td>'.
+                        '<td><div class="layui-btn-container">';
+                    $cates=PediaEntryClassification::find()->where(['eid'=>$word->eid])->all();
+                    foreach ($cates as $cate)
+                    {
+                        $cname=PediaEntryCategory::find()->where(['cid'=>$cate->cid])->one();
+                        echo  '<a target="_self" href="/nkpedia/frontend/web/index.php?r=site%2Fcategory&cid='.$cate->cid.'"><button type="button" class="layui-btn layui-btn-radius '. $colors[rand(0,3)].'">'.$cname->category.'</button></a>';
+                    }
+                    echo '</div></td>'. '<td>'.$word->clicktimes.'</td>';
+
             }
         ?>
         </tbody>
