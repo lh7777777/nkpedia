@@ -129,7 +129,7 @@ use yii\helpers\Url;
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
-                    <img src="<?php echo Url::to('@web/resources/images/yue.jpg')?>" alt="" width="450" class="img-thumbnail">
+                    <img src="<?php echo Url::to('@web/resources/images/yue.jpg')?>" alt="" width="420" class="img-thumbnail">
                 </div>
                 <br>
                 <div class="layui-row">
