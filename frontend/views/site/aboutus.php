@@ -9,13 +9,13 @@ use frontend\assets\LayuiAsset;
 use yii\helpers\Url;
 
 ?>
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-md6 layui-col-md-offset3">
-            <img src="<?php echo Url::to('@web/resources/title/1.png'); ?>" alt=""/>
-        </div>
-    </div>
-</div>
+<!--<div class="layui-container">-->
+<!--    <div class="layui-row">-->
+<!--        <div class="layui-col-md6 layui-col-md-offset3">-->
+<!--            <img src="--><?php //echo Url::to('@web/resources/title/1.png'); ?><!--" alt=""/>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="layui-container">
     <div class="layui-carousel" id="uscarousel" lay-filter="uscarousel">
         <div carousel-item>

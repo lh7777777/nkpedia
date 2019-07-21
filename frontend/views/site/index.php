@@ -12,13 +12,13 @@ $this->title = 'My Yii Application';
  */
 ?>
 
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-md6 layui-col-md-offset3">
-            <img src="<?php echo Url::to('@web/resources/title/1.png'); ?>" alt=""/>
-        </div>
-    </div>
-</div>
+<!--<div class="layui-container">-->
+<!--    <div class="layui-row">-->
+<!--        <div class="text-center">-->
+<!--            <img src="--><?php //echo Url::to('@web/resources/title/39_2.png'); ?><!--" alt=""/>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="layui-container layui-anim layui-anim-upbit" id="divcon">
     <div class="layui-row"></div>
         <div class="layui-row">
@@ -32,4 +32,4 @@ $this->title = 'My Yii Application';
         </div>
 <?php ActiveForm::end(); ?>
 </div>
-<div class="layui-container" style="height: 45%; position: relative;top: 0;z-index: -1;"></div>
+<div class="layui-container" style="height: 60%; position: relative;top: 0;z-index: -1;"></div>

@@ -22,13 +22,13 @@ $this->title = 'My Yii Application';
     LayuiAsset::addScript($this, "@web/resources/js/report.js");
 }
 ?>
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-md6 layui-col-md-offset3">
-            <img src="<?php echo Url::to('@web/resources/title/1.png'); ?>" alt=""/>
-        </div>
-    </div>
-</div>
+<!--<div class="layui-container">-->
+<!--    <div class="layui-row">-->
+<!--        <div class="layui-col-md6 layui-col-md-offset3">-->
+<!--            <img src="--><?php //echo Url::to('@web/resources/title/1.png'); ?><!--" alt=""/>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="layui-container layui-anim layui-anim-upbit">
     <div class="layui-collapse  layui-bg-gray">
         <div class="layui-colla-item">

@@ -62,7 +62,24 @@ LayuiAsset::register($this);
         <li class="layui-nav-item" id="aboutus"><a href="/nkpedia/frontend/web/index.php?r=site%2Faboutus"><span class="fa fa-info"></span>&nbsp;关于我们</a></li>
     </ul>
     <?php LayuiAsset::addscript($this,'@web/resources/js/index.js')?>
-    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/'.rand(8,10).'.jpg'); ?>" /></div>
+    <?php $num=rand(8,10);?>
+    <?php
+        $bac=1;
+     if($num==10)
+        {
+            $bac=2;
+        }
+     ?>
+    <div id="div1"><img src="<?php echo Url::to('@web/resources/images/'.$num.'.jpg'); ?>" /></div>
+    <br>
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="text-center">
+                <img src="<?php echo Url::to('@web/resources/title/'.rand(21,27).'_'.$bac.'.png'); ?>" alt=""/>
+            </div>
+        </div>
+    </div>
+    <br>
 <!--    <div class="content">-->
         <?= $content ?>
 <!--    </div>-->
