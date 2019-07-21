@@ -57,36 +57,6 @@ use yii\helpers\Url;
                         <p class="h4 text-right">——研究员塔罗兰</p>
                     </div>
                 </div>
-
-<!--                <ul class="layui-timeline">-->
-<!--                    <li class="layui-timeline-item">-->
-<!--                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>-->
-<!--                        <div class="layui-timeline-content layui-text">-->
-<!--                            <h3 class="layui-timeline-title">姓名</h3>-->
-<!--                            <p>-->
-<!--                                杨俣哲-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </li>-->
-<!--                    <li class="layui-timeline-item">-->
-<!--                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>-->
-<!--                        <div class="layui-timeline-content layui-text">-->
-<!--                            <h3 class="layui-timeline-title">学号</h3>-->
-<!--                            <p>-->
-<!--                                1711396-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </li>-->
-<!--                    <li class="layui-timeline-item">-->
-<!--                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>-->
-<!--                        <div class="layui-timeline-content layui-text">-->
-<!--                            <h3 class="layui-timeline-title">邮箱</h3>-->
-<!--                            <p>-->
-<!--                                794433219@qq.com-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </li>-->
-<!--                </ul>-->
             </div>
             <div class="layui-container">
                 <div class="pull-right" style="position: absolute;left: 650px;top: 10px;">
