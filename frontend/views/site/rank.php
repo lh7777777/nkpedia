@@ -11,13 +11,13 @@ use common\models\PediaEntryBasicinfo;
  * This is the hot word page
  */
 ?>
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-md6 layui-col-md-offset3">
-            <img src="<?php echo Url::to('@web/resources/title/1.png'); ?>" alt=""/>
-        </div>
-    </div>
-</div>
+<!--<div class="layui-container">-->
+<!--    <div class="layui-row">-->
+<!--        <div class="layui-col-md6 layui-col-md-offset3">-->
+<!--            <img src="--><?php //echo Url::to('@web/resources/title/1.png'); ?><!--" alt=""/>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="layui-container layui-anim layui-anim-upbit">
     <table class="layui-table" lay-skin="line">
         <colgroup>
