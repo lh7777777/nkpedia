@@ -156,6 +156,15 @@ echo implode($menuItems);
                                         ],
                                     ],
                                     ["label" => "AboutUs", "url" => ['/pedia-user-aboutus'], "icon" => "phone-square"],
+                                    [
+                                        "label" =>"作业下载",
+                                        "url"=>"#",
+                                        "icon"=>"download",
+                                        "items"=>[
+                                        ["label"=>"团队作业","url"=>["/site/teamwork"],"icon"=>"file-text"],
+                                        ["label"=>"个人作业","url"=>["/site/personwork"],"icon"=>"file-text-o"]
+                                        ],
+                                    ],
                                 ],
                             ]
                         )
