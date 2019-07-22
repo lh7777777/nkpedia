@@ -9,6 +9,10 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaEntryHistoryversion */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 解亚兰 1711431,20190722
+ */
 
 $this->title = $model->vid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia Entry Historyversions', 'url' => ['index']];

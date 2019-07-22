@@ -6,6 +6,10 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaEntryReport */
 /* @var $form yii\widgets\ActiveForm */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190722
+ */
 ?>
 
 <div class="pedia-entry-report-form">

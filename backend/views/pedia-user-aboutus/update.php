@@ -4,6 +4,10 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaUserAboutus */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190722
+ */
 
 $this->title = 'Update Pedia User Aboutus: ' . $model->uid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia User Aboutuses', 'url' => ['index']];

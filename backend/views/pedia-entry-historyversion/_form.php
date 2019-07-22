@@ -7,6 +7,10 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\PediaEntryHistoryversion */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+/**
+* Team:没有蛀牙,NKU
+* Coding by 解亚兰 1711431,20190722
+*/
 
 <div class="pedia-entry-historyversion-form">
 

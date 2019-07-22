@@ -12,6 +12,7 @@ use yii\grid\GridView;
 
 /** Team:没有蛀牙，NKU
  *Coding by 孙一冉，1711297，20190714
+ *Coding by 王心荻，1711298,20190712
  */
 
 $this->title = 'Pedia User Aboutuses';

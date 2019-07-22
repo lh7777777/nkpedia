@@ -4,6 +4,10 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaEntryRelatedlinks */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 解亚兰 1711431,20190722
+ */
 
 $this->title = 'Update Pedia Entry Relatedlinks: ' . $model->eid;
 $this->params['breadcrumbs'][] = ['label' => 'Pedia Entry Relatedlinks', 'url' => ['index']];

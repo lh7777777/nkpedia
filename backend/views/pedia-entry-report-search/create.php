@@ -4,6 +4,10 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PediaEntryReport */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 王心荻 1711298,20190722
+ */
 
 $this->title = 'Create Pedia Entry Report';
 $this->params['breadcrumbs'][] = ['label' => 'Pedia Entry Reports', 'url' => ['index']];

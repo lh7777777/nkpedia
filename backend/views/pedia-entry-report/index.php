@@ -9,6 +9,10 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PediaEntryReportSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/**
+ * Team:没有蛀牙,NKU
+ * Coding by 解亚兰 1711431,20190722
+ */
 
 $this->title = 'Pedia Entry Reports';
 $this->params['breadcrumbs'][] = $this->title;
